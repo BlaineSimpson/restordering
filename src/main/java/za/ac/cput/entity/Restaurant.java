@@ -41,8 +41,8 @@ private Restaurant(Builder builder ){
 
     @Override
     public String toString() {
-        return "Restaurant{" +
-                "restaurantId='" + restaurantId + '\'' +
+        return "Restaurant {" +
+                " restaurantId='" + restaurantId + '\'' +
                 ", restaurantName='" + restaurantName + '\'' +
                 ", restaurantAddress='" + restaurantAddress + '\'' +
                 ", isOpen=" + isOpen +
