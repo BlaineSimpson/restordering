@@ -35,20 +35,15 @@ class UserLoginFactoryTest {
     }
 
     @Test
-    public void nullValueUsername(){
+    public void nullUsername(){
         UserLogin user = UserLoginFactory.createUser(1, "", "root1");
         assertNull(user, "Username cannot be empty");
     }
 
     @Test
-    public void nullValuePassword(){
+    public void nullPassword(){
         UserLogin user = UserLoginFactory.createUser(1, "User", "");
         assertNull(user, "Password cannot be empty");
-    }
-    @Test
-    public void nullValuePassword2(){
-        UserLogin user = UserLoginFactory.createUser(1, "User", "");
-        assertNotNull(user, "This test should fail");
     }
 
 

@@ -40,10 +40,5 @@ class AdminLoginFactoryTest {
         AdminLogin admin = AdminLoginFactory.createAdmin(1, "Admin", "");
         assertNull(admin, "password cannot be empty");
     }
-    @Test
-    public void nullPassword2(){
-        AdminLogin admin = AdminLoginFactory.createAdmin(1, "Admin", "");
-        assertNotNull(admin, "This test should fail");
-    }
 
 }
