@@ -51,7 +51,7 @@ class AdminLoginRepositoryTest {
         System.out.println("Updated: " + updated);
     }
 
-    //@Test
+    @Test
     void e_delete() {
         boolean success = adminLoginRepository.delete(adminLogin.getAdminLoginId());
         assertTrue(success);
