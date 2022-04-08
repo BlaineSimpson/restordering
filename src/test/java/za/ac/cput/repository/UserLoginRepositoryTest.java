@@ -1,3 +1,9 @@
+/* UserLoginRepositoryTest.java
+ Repository test for user
+ Author: Ali Mohamed (219113505)
+ Date: 08 April 2022
+*/
+
 package za.ac.cput.repository;
 
 import org.junit.jupiter.api.MethodOrderer;
