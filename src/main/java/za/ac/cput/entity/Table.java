@@ -40,7 +40,7 @@ public class Table {
 
     @Override
     public String toString() {
-        return "Table {" +
+        return "Table{" +
                 " tableId='" + tableId + '\'' +
                 ", tableNo=" + tableNo +
                 ", noOfSeats=" + noOfSeats +
