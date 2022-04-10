@@ -10,21 +10,21 @@ import java.util.Set;
  Date: 01 April 2022
 
  */
-public class ItemRepository implements IItemOrderRepository {
+public class ItemOrderRepository implements IItemOrderRepository {
 
-    private static ItemRepository repository =null;
+    private static ItemOrderRepository repository =null;
     private Set<ItemOrder> itemDB=null;
 
-    private ItemRepository() {
+    private ItemOrderRepository() {
 
      itemDB = new HashSet<ItemOrder>();
 
     }
 
-    public static ItemRepository getRespository() {
+    public static ItemOrderRepository getRespository() {
 
         if (repository == null){
-            repository = new ItemRepository();
+            repository = new ItemOrderRepository();
         }
 
         return repository;
