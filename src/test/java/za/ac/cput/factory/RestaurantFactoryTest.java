@@ -18,7 +18,7 @@ void createRestaurant() {
         assertNotNull(restaurant);
         System.out.println("Create Restaurant ");
         System.out.println(restaurant);
-        System.out.println("Restaurant added.....");
+        System.out.println("Restaurant added....");
     }
 
 
