@@ -1,7 +1,7 @@
 /*
 IRestaurantRepository.java
 Author Demi Alexis Farquhar (220322104)
-Date: 7 March 2022
+Date: 7 April 2022
  */
 package za.ac.cput.repository;
 
