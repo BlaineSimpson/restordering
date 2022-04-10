@@ -1,29 +1,29 @@
 package za.ac.cput.entity;
 
-/* Item.java
- Entity for the Item
+/* ItemOrder.java
+ Entity for the ItemOrder
  Author: Blaine Simpson (218020171)
  Date: 01 April 2022
 
  */
-public class Item {
+public class ItemOrder {
 
     private String ItemId;
     private String ItemName;
-    private String price;
+    private String NumberofPlates;
 
 
-   private Item(Builder builder){
+   private ItemOrder(Builder builder){
         this.ItemId = builder.ItemId;
         this.ItemName = builder.ItemName;
-        this.price = builder.price;
+        this.NumberofPlates = builder.NumberofPlates;
 
     }
 
-    public Item(String itemId, String itemName, String price) {
+    public ItemOrder(String itemId, String itemName, String NumberofPlates) {
         ItemId = itemId;
         ItemName = itemName;
-        this.price = price;
+        this.NumberofPlates = NumberofPlates;
     }
 
     public String getItemId() {
@@ -43,11 +43,11 @@ public class Item {
     }
 
     public String getPrice() {
-        return price;
+        return NumberofPlates;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
+    public void setNumberofPlates(String NumberofPlates) {
+        this.NumberofPlates = NumberofPlates;
     }
 
     @Override
@@ -55,7 +55,7 @@ public class Item {
         return "Item{" +
                 "ItemId=" + ItemId +
                 ", ItemName='" + ItemName + '\'' +
-                ", price=" + price +
+                ", NumberofPlates=" + NumberofPlates +
                 '}';
     }
 
@@ -63,7 +63,7 @@ public class Item {
 
         private String ItemId;
         private String ItemName;
-        private String price;
+        private String NumberofPlates;
 
 
         public Builder setItemId(String itemId) {
@@ -76,23 +76,23 @@ public class Item {
             return this;
         }
 
-        public Builder setPrice(String price) {
-            this.price = price;
+        public Builder setNumberofPlates(String NumberofPlates) {
+            this.NumberofPlates = NumberofPlates;
             return this;
 
         }
-        public Builder copy(Item item){
+        public Builder copy(ItemOrder item){
           this.ItemId = item.ItemId;
           this.ItemName =item.ItemName;
-          this.price = item.price;
+          this.NumberofPlates = item.NumberofPlates;
           return this;
 
 
         }
 
-        public Item build() {
+        public ItemOrder build() {
 
-         return  new Item(this);
+         return  new ItemOrder(this);
         }
 
 

@@ -1,23 +1,23 @@
 package za.ac.cput.repository;
 
-import za.ac.cput.entity.Item;
+import za.ac.cput.entity.ItemOrder;
 
 import java.util.HashSet;
 import java.util.Set;
-/* ItemRepository.java
- Entity for the Item
+/* ItemOrderRepository.java
+ Entity for the ItemOrder
  Author: Blaine Simpson (218020171)
  Date: 01 April 2022
 
  */
-public class ItemRepository implements IItemRepository {
+public class ItemRepository implements IItemOrderRepository {
 
     private static ItemRepository repository =null;
-    private Set<Item> itemDB=null;
+    private Set<ItemOrder> itemDB=null;
 
     private ItemRepository() {
 
-     itemDB = new HashSet<Item>();
+     itemDB = new HashSet<ItemOrder>();
 
     }
 
@@ -35,8 +35,8 @@ public class ItemRepository implements IItemRepository {
 
 
     @Override
-    public Item read(String ItemId) {
-        Item item = itemDB.stream()
+    public ItemOrder read(String ItemId) {
+        ItemOrder item = itemDB.stream()
                 .filter(i-> i.getItemId().equals(ItemId))
                 .findAny()
                 .orElse(null);
@@ -45,8 +45,8 @@ public class ItemRepository implements IItemRepository {
 
 
     @Override
-    public Item update(Item item) {
-        Item oldItem = read (item.getItemId());
+    public ItemOrder update(ItemOrder item) {
+        ItemOrder oldItem = read (item.getItemId());
         if(oldItem !=null) {
             itemDB.remove(oldItem);
             itemDB.add(item);
@@ -58,7 +58,7 @@ public class ItemRepository implements IItemRepository {
 
     @Override
     public boolean delete(String ItemId) {
-        Item itemDelete = read(ItemId);
+        ItemOrder itemDelete = read(ItemId);
         if (itemDelete == null)
             return false;
         itemDB.remove(itemDelete);
@@ -66,7 +66,7 @@ public class ItemRepository implements IItemRepository {
       return true ;
     }
     @Override
-    public Item create(Item item) {
+    public ItemOrder create(ItemOrder item) {
 
     boolean works = itemDB.add(item);
 
@@ -76,7 +76,7 @@ public class ItemRepository implements IItemRepository {
 
     }
     @Override
-    public Set<Item> getAll() {
+    public Set<ItemOrder> getAll() {
         return itemDB;
     }
 }
