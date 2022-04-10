@@ -1,7 +1,7 @@
 /* UserLogin.java
  Entity for the User Login
  Author: Ali Mohamed (219113505)
- Date: 03 April 2022
+ Date: 03 April 2022.
 */
 
 package za.ac.cput.entity;

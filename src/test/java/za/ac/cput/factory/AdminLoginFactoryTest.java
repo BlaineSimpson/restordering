@@ -1,7 +1,7 @@
 /* AdminLoginFactoryTest.java
  Test the admin factory class
  Author: Ali Mohamed (219113505)
- Date: 04 April 2022
+ Date: 04 April 2022.
 */
 package za.ac.cput.factory;
 

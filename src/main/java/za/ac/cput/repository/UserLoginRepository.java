@@ -1,7 +1,7 @@
 /* UserLoginRepository.java
  Repository for user
  Author: Ali Mohamed (219113505)
- Date: 08 April 2022
+ Date: 08 April 2022.
 */
 package za.ac.cput.repository;
 
