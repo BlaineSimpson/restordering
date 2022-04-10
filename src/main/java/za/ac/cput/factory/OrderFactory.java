@@ -11,7 +11,7 @@ import za.ac.cput.entity.Order;
 
 public class OrderFactory {
 
-    public static Order createItem(Integer custNum, String date, boolean ready){
+    public static Order createOrder(Integer custNum, String date, boolean ready){
         Order order = new Order.Builder().setCustomerID(custNum)
                 .setOrderDate(date)
                 .setReady(ready)
