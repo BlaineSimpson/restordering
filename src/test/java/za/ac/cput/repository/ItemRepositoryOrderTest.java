@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
  */
 @TestMethodOrder(MethodOrderer.MethodName.class)
-class ItemRepositoryTest {
+class ItemRepositoryOrderTest {
     private static ItemRepository  repository
             =ItemRepository.getRespository();
     private static ItemOrder item =
