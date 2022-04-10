@@ -13,7 +13,7 @@ class TableFactoryTest {
         assertNotNull(table);
         System.out.println("Create Table");
         System.out.println(table);
-        System.out.println("Table added.......");
+        System.out.println("Table added......");
     }
 
 }
