@@ -7,7 +7,6 @@ package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.AdminLogin;
-import za.ac.cput.entity.UserLogin;
 
 import static org.junit.jupiter.api.Assertions.*;
 

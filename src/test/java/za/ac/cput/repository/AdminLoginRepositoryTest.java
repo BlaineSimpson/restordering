@@ -9,7 +9,6 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import za.ac.cput.entity.AdminLogin;
-import za.ac.cput.entity.UserLogin;
 import za.ac.cput.factory.AdminLoginFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
