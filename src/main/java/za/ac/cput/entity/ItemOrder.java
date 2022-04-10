@@ -3,7 +3,7 @@ package za.ac.cput.entity;
 /* ItemOrder.java
  Entity for the ItemOrder
  Author: Blaine Simpson (218020171)
- Date: 02 April 2022
+ Date: 01 April 2022
 
  */
 public class ItemOrder {
