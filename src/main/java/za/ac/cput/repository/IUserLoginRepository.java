@@ -6,10 +6,13 @@
 
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.UserLogin;
 
 import java.util.Set;
 
-public interface IUserLoginRepository extends IRepository<UserLogin, Integer>{
-    Set<UserLogin> getAll();
+@Repository
+public interface IUserLoginRepository extends JpaRepository<UserLogin, String> {
+
 }

@@ -11,11 +11,11 @@ import za.ac.cput.util.LoginHelper;
 
 public class UserLoginFactory {
 
-    public static UserLogin createUser(int userLoginId, String userLoginUsername, String userLoginPassword){
-        if (LoginHelper.isNull(userLoginUsername) || LoginHelper.isNull(userLoginPassword))
+    public static UserLogin createUser(String userLoginId, String userLoginUsername, String userLoginPassword){
+        if (LoginHelper.isNull(userLoginId) || LoginHelper.isNull(userLoginUsername) || LoginHelper.isNull(userLoginPassword))
             return null;
-        if (LoginHelper.invalidId(userLoginId))
-            return null;
+//        if (LoginHelper.invalidId(userLoginId))
+//            return null;
 
         return new UserLogin.Builder().setUserLoginId(userLoginId)
                 .setUserLoginUsername(userLoginUsername)

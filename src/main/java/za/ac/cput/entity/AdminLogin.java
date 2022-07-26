@@ -6,9 +6,19 @@
 
 package za.ac.cput.entity;
 
-public class AdminLogin {
-    private int adminLoginId;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+
+@Entity
+public class AdminLogin implements Serializable {
+    @Id
+    @NotNull
+    private String adminLoginId;
+    @NotNull
     private String adminLoginUsername;
+    @NotNull
     private String adminLoginPassword;
 
     private AdminLogin(Builder builder){
@@ -17,7 +27,11 @@ public class AdminLogin {
         this.adminLoginPassword = builder.adminLoginPassword;
     }
 
-    public int getAdminLoginId() {
+    protected AdminLogin() {
+
+    }
+
+    public String getAdminLoginId() {
         return adminLoginId;
     }
 
@@ -39,11 +53,11 @@ public class AdminLogin {
     }
 
     public static class Builder{
-        private int adminLoginId;
+        private String adminLoginId;
         private String adminLoginUserName;
         private String adminLoginPassword;
 
-        public Builder setAdminLoginId(int adminLoginId) {
+        public Builder setAdminLoginId(String adminLoginId) {
             this.adminLoginId = adminLoginId;
             return this;
         }

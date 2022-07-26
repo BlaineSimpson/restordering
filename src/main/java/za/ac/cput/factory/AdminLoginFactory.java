@@ -11,11 +11,11 @@ import za.ac.cput.util.LoginHelper;
 
 public class AdminLoginFactory {
 
-    public static AdminLogin createAdmin(int adminLoginId, String adminLoginUsername, String adminLoginPassword){
-        if (LoginHelper.isNull(adminLoginUsername) || LoginHelper.isNull(adminLoginPassword))
+    public static AdminLogin createAdmin(String adminLoginId, String adminLoginUsername, String adminLoginPassword){
+        if (LoginHelper.isNull(adminLoginId) || LoginHelper.isNull(adminLoginUsername) || LoginHelper.isNull(adminLoginPassword))
             return null;
-        if(LoginHelper.invalidId(adminLoginId))
-            return null;
+//        if(LoginHelper.isNull(adminLoginId))
+//            return null;
         return new AdminLogin.Builder().setAdminLoginId(adminLoginId)
                 .setAdminLoginUserName(adminLoginUsername)
                 .setAdminLoginPassword(adminLoginPassword)
