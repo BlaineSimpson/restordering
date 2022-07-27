@@ -10,11 +10,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class AdminLogin implements Serializable {
-    @Id
     @NotNull
+    @Id
     private String adminLoginId;
     @NotNull
     private String adminLoginUsername;
@@ -50,6 +51,19 @@ public class AdminLogin implements Serializable {
                 ", adminLoginUserName='" + adminLoginUsername + '\'' +
                 ", adminLoginPassword='" + adminLoginPassword + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        AdminLogin that = (AdminLogin) o;
+        return Objects.equals(adminLoginId, that.adminLoginId) && Objects.equals(adminLoginUsername, that.adminLoginUsername) && Objects.equals(adminLoginPassword, that.adminLoginPassword);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(adminLoginId, adminLoginUsername, adminLoginPassword);
     }
 
     public static class Builder{

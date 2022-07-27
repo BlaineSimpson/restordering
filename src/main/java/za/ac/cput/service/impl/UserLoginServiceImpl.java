@@ -1,6 +1,12 @@
+/* UserLoginServiceImpl.java
+ Implementation for UserLogin service
+ Author: Ali Mohamed (219113505)
+ Date: 26 July 2022
+*/
 package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.UserLogin;
 import za.ac.cput.repository.IUserLoginRepository;
 import za.ac.cput.service.IUserLoginService;
@@ -8,6 +14,7 @@ import za.ac.cput.service.IUserLoginService;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UserLoginServiceImpl implements IUserLoginService {
 
     private final IUserLoginRepository repository;

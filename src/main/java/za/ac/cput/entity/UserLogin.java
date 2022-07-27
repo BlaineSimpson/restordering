@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class UserLogin implements Serializable {
@@ -50,6 +51,19 @@ public class UserLogin implements Serializable {
                 ", userLoginUsername='" + userLoginUsername + '\'' +
                 ", userLoginPassword='" + userLoginPassword + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserLogin userLogin = (UserLogin) o;
+        return Objects.equals(userLoginId, userLogin.userLoginId) && Objects.equals(userLoginUsername, userLogin.userLoginUsername) && Objects.equals(userLoginPassword, userLogin.userLoginPassword);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userLoginId, userLoginUsername, userLoginPassword);
     }
 
     public static class Builder{
