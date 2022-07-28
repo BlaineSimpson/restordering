@@ -1,3 +1,8 @@
+/* UserLoginServiceImplTest.java
+ Testing the UserLogin service
+ Author: Ali Mohamed (219113505)
+ Date: 27 July 2022
+*/
 package za.ac.cput.service.impl;
 
 import org.junit.jupiter.api.MethodOrderer;
