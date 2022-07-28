@@ -41,6 +41,13 @@ public class UserLoginController {
         return ResponseEntity.ok(find);
     }
 
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<UserLogin> deleteById(@PathVariable String id){
+        log.info("Delete request: {}", id);
+        this.userService.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @DeleteMapping("delete-user")
     public ResponseEntity<UserLogin> delete(UserLogin user){
         log.info("Delete Request: {}", user);

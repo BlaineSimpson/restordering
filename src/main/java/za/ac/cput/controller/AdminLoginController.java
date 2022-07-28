@@ -41,6 +41,13 @@ public class AdminLoginController {
         return ResponseEntity.ok(find);
     }
 
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<AdminLogin> deleteById(@PathVariable String id){
+        log.info("Delete request: {}", id);
+        this.adminService.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @DeleteMapping("delete-admin")
     public ResponseEntity<AdminLogin> delete(AdminLogin admin){
         log.info("Delete Request: {}", admin);

@@ -84,4 +84,12 @@ class UserLoginControllerTest {
         restTemplate.delete(url);
         System.out.println(url);
     }
+
+    @Test
+    @Order(5)
+    void deleteById() {
+        String url = baseUrl + "delete/" + user.getUserLoginId();
+        restTemplate.delete(url);
+        System.out.println(url);
+    }
 }

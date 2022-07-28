@@ -85,4 +85,12 @@ class AdminLoginControllerTest {
         restTemplate.delete(url);
         System.out.println(url);
     }
+
+    @Test
+    @Order(5)
+    void deleteById() {
+        String url = baseUrl + "delete/" + admin.getAdminLoginId();
+        restTemplate.delete(url);
+        System.out.println(url);
+    }
 }

@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import za.ac.cput.entity.AdminLogin;
 import za.ac.cput.entity.UserLogin;
 import za.ac.cput.factory.UserLoginFactory;
 
@@ -62,5 +63,13 @@ class UserLoginServiceImplTest {
         service.delete(user); //delete user 1
         List<UserLogin> list = this.service.findAll();
         System.out.println(list); //display remaining users
+    }
+
+    @Test
+    @Order(5)
+    void deleteById() {
+        service.deleteById("2"); //Deleted user 2 (List should be empty)
+        List<UserLogin> list = this.service.findAll();
+        System.out.println(list);
     }
 }

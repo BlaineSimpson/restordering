@@ -30,8 +30,8 @@ public class UserLoginServiceImpl implements IUserLoginService {
     }
 
     @Override
-    public Optional<UserLogin> findById(String s) {
-        return this.repository.findById(s);
+    public Optional<UserLogin> findById(String id) {
+        return this.repository.findById(id);
     }
 
     @Override
@@ -42,5 +42,11 @@ public class UserLoginServiceImpl implements IUserLoginService {
     @Override
     public List<UserLogin> findAll() {
         return this.repository.findAll();
+    }
+
+    @Override
+    public void deleteById(String id) {
+        Optional<UserLogin> user = findById(id);
+        user.ifPresent(this::delete);
     }
 }

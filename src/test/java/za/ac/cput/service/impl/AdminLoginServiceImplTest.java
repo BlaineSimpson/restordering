@@ -63,4 +63,12 @@ class AdminLoginServiceImplTest {
         List<AdminLogin> list = this.service.findAll();
         System.out.println(list); //display remaining admins
     }
+
+    @Test
+    @Order(5)
+    void deleteById() {
+        service.deleteById("2"); //Deleted admin 2 (List should be empty)
+        List<AdminLogin> list = this.service.findAll();
+        System.out.println(list);
+    }
 }

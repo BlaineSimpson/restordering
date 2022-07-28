@@ -30,8 +30,8 @@ public class AdminLoginServiceImpl implements IAdminLoginService {
     }
 
     @Override
-    public Optional<AdminLogin> findById(String s) {
-        return this.repository.findById(s);
+    public Optional<AdminLogin> findById(String id) {
+        return this.repository.findById(id);
     }
 
     @Override
@@ -42,5 +42,11 @@ public class AdminLoginServiceImpl implements IAdminLoginService {
     @Override
     public List<AdminLogin> findAll() {
         return this.repository.findAll();
+    }
+
+    @Override
+    public void deleteById(String id) {
+        Optional<AdminLogin> admin = findById(id);
+        admin.ifPresent(this::delete);
     }
 }
