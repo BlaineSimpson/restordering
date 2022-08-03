@@ -1,3 +1,8 @@
+/*
+ITableRepository.java
+Author Demi Alexis Farquhar (220322104)
+Date:  April 2022
+ */
 package za.ac.cput.repository;
 
 import za.ac.cput.entity.Table;

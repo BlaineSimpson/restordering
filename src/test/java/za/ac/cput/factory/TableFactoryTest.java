@@ -1,3 +1,9 @@
+/*
+TableFactoryTest.java
+Author Demi Alexis Farquhar (220322104)
+Date: 7 April 2022
+ */
+
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
@@ -13,7 +19,7 @@ class TableFactoryTest {
         assertNotNull(table);
         System.out.println("Create Table");
         System.out.println(table);
-        System.out.println("Table added.......");
+        System.out.println("Table added......");
     }
 
 }
