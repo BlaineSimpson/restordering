@@ -15,7 +15,7 @@ class AdminLoginFactoryTest {
 
     @Test
     public void notNullValues(){
-        AdminLogin admin = AdminLoginFactory.createAdmin(1, "Admin", "root1");
+        AdminLogin admin = AdminLoginFactory.createAdmin("1", "Admin", "root1");
 
         assertNotNull(admin);
 
@@ -26,18 +26,18 @@ class AdminLoginFactoryTest {
         System.out.println(admin.getAdminLoginPassword());
     }
     @Test
-    public void idLessThanZero(){
-        AdminLogin admin = AdminLoginFactory.createAdmin(-1, "Admin", "root1");
-        assertNull(admin, "ID number can not be less than 0");
+    public void nullId(){
+        AdminLogin admin = AdminLoginFactory.createAdmin("", "Admin", "root1");
+        assertNull(admin, "ID cannot be empty");
     }
     @Test
     public void nullUsername(){
-        AdminLogin admin = AdminLoginFactory.createAdmin(1, "", "root1");
+        AdminLogin admin = AdminLoginFactory.createAdmin("1", "", "root1");
         assertNull(admin, "Username cannot be empty");
     }
     @Test
     public void nullPassword(){
-        AdminLogin admin = AdminLoginFactory.createAdmin(1, "Admin", "");
+        AdminLogin admin = AdminLoginFactory.createAdmin("1", "Admin", "");
         assertNull(admin, "password cannot be empty");
     }
 

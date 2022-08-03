@@ -6,11 +6,13 @@
 
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.AdminLogin;
 
 import java.util.Set;
 
-public interface IAdminLoginRepository extends IRepository<AdminLogin, Integer> {
+@Repository
+public interface IAdminLoginRepository extends JpaRepository<AdminLogin, String> {
 
-    Set<AdminLogin> getAll();
 }

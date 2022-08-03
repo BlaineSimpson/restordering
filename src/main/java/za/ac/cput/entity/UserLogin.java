@@ -6,9 +6,20 @@
 
 package za.ac.cput.entity;
 
-public class UserLogin {
-    private int userLoginId;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Entity
+public class UserLogin implements Serializable {
+    @Id
+    @NotNull
+    private String userLoginId;
+    @NotNull
     private String userLoginUsername;
+    @NotNull
     private String userLoginPassword;
 
     private UserLogin(Builder builder){
@@ -17,7 +28,11 @@ public class UserLogin {
         this.userLoginPassword = builder.userLoginPassword;
     }
 
-    public int getUserLoginId() {
+    protected UserLogin() {
+
+    }
+
+    public String getUserLoginId() {
         return userLoginId;
     }
 
@@ -38,12 +53,25 @@ public class UserLogin {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserLogin userLogin = (UserLogin) o;
+        return Objects.equals(userLoginId, userLogin.userLoginId) && Objects.equals(userLoginUsername, userLogin.userLoginUsername) && Objects.equals(userLoginPassword, userLogin.userLoginPassword);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userLoginId, userLoginUsername, userLoginPassword);
+    }
+
     public static class Builder{
-        private int userLoginId;
+        private String userLoginId;
         private String userLoginUsername;
         private String userLoginPassword;
 
-        public Builder setUserLoginId(int userLoginId) {
+        public Builder setUserLoginId(String userLoginId) {
             this.userLoginId = userLoginId;
             return this;
         }
