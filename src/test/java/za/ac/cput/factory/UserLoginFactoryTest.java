@@ -15,8 +15,8 @@ class UserLoginFactoryTest {
 
     @Test
     public void notNullValues(){
-        UserLogin user = UserLoginFactory.createUser(1, "User", "root1");
-        UserLogin user2 = UserLoginFactory.createUser(1, " user2", "root2");
+        UserLogin user = UserLoginFactory.createUser("1", "User", "root1");
+        UserLogin user2 = UserLoginFactory.createUser("1", " user2", "root2");
         assertNotNull(user);
         assertNotNull(user2);
 
@@ -29,20 +29,20 @@ class UserLoginFactoryTest {
     }
 
     @Test
-    public void idLessThanZero(){
-        UserLogin user = UserLoginFactory.createUser(-1, "User", "root1");
-        assertNull(user, "ID number can not be less than 0");
+    public void nullId(){
+        UserLogin user = UserLoginFactory.createUser("", "User", "root1");
+        assertNull(user, "Id cannot be empty");
     }
 
     @Test
     public void nullUsername(){
-        UserLogin user = UserLoginFactory.createUser(1, "", "root1");
+        UserLogin user = UserLoginFactory.createUser("1", "", "root1");
         assertNull(user, "Username cannot be empty");
     }
 
     @Test
     public void nullPassword(){
-        UserLogin user = UserLoginFactory.createUser(1, "User", "");
+        UserLogin user = UserLoginFactory.createUser("1", "User", "");
         assertNull(user, "Password cannot be empty");
     }
 
