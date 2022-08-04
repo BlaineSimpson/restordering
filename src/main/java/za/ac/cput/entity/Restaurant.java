@@ -7,13 +7,25 @@ Date: 6 April 2022
 
 package za.ac.cput.entity;
 
-public class Restaurant {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Entity
+public class Restaurant implements Serializable {
+    @NotNull
+    @Id
     private String restaurantId;
+    @NotNull
     private String restaurantName;
+    @NotNull
     private String restaurantAddress;
+    @NotNull
     private boolean isOpen;
 
-    private Restaurant(){}
+
 
 private Restaurant(Builder builder ){
         this.restaurantId=builder.restaurantId;
@@ -22,6 +34,10 @@ private Restaurant(Builder builder ){
         this.isOpen=builder.isOpen;
 
 }
+
+    protected Restaurant() {
+
+    }
 
     public String getRestaurantId() {
         return restaurantId;
@@ -48,6 +64,20 @@ private Restaurant(Builder builder ){
                 ", isOpen=" + isOpen +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Restaurant that = (Restaurant) o;
+        return isOpen == that.isOpen && restaurantId.equals(that.restaurantId) && restaurantName.equals(that.restaurantName) && restaurantAddress.equals(that.restaurantAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(restaurantId, restaurantName, restaurantAddress, isOpen);
+    }
+
     public static class Builder{
         private String restaurantId;
         private String restaurantName;
