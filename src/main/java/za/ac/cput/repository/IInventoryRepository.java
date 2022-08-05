@@ -1,15 +1,20 @@
+/*
+
+Author Shuaib Allie (217148867)
+
+ */
 package za.ac.cput.repository;
 
-/*
-IRepository.java
-Author: Shuaib Allie (217148867)
-Date: 1 April 2022
- */
-
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Inventory;
 
-import java.util.Set;
 
-public interface IInventoryRepository extends IRepository <Inventory, String> {
-    public Set<Inventory> getAll();
+
+@Repository
+public interface IInventoryRepository extends JpaRepository<Inventory,String> {
+//create, read, update, delete
+
+
+
 }

@@ -1,26 +1,36 @@
-package za.ac.cput.entity;
-
 /*
-IRepository.java
-Author: Shuaib Allie (217148867)
-Date: 1 April 2022
+
+Author Shuaib Allie (217148867)
+
  */
 
-public class Inventory {
+package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Entity
+public class Inventory implements Serializable {
+    @NotNull
+    @Id
     private String inv;
-
-    private String itemName;
-
+    @NotNull
+    private String itemName;;
+    @NotNull
     private String category;
+    @NotNull
     private String vendor;
+    @NotNull
     private int vendorInv;
+    @NotNull
     private int vendorPrice;
 
 
-    private Inventory(){}
 
-    private Inventory(Builder builder){
+    private Inventory(Builder builder ){
         this.inv=builder.inv;
         this.itemName=builder.itemName;
         this.category=builder.category;
@@ -30,30 +40,33 @@ public class Inventory {
 
     }
 
-    public String getInv(){
+    protected Inventory() {
+
+    }
+
+    public String getInv() {
         return inv;
     }
 
-    public String getCategory(){
-        return category;
-    }
-
-    public String getItemName(){
+    public String getItemName() {
         return itemName;
     }
 
-    public String getVendor(){
+    public String getCategory() {
+        return category;
+    }
+
+    public String vendor() {
         return vendor;
     }
 
-    private int getVendorInv(){
+    public int getVendorInv(){
         return vendorInv;
     }
 
-    private int getVendorPrice(){
+    public int getVendorPrice(){
         return vendorPrice;
     }
-
 
     @Override
     public String toString(){
@@ -65,6 +78,13 @@ public class Inventory {
                 ", Inventory Amount='" + vendorInv + '\'' +
                 ", Vendor Price (in Rands)='" + vendorPrice + '\'' +
                 '}';
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(inv, itemName, category, vendor, vendorInv, vendorPrice);
     }
 
     public static class Builder{
@@ -125,4 +145,3 @@ public class Inventory {
     }
 
 }
-
