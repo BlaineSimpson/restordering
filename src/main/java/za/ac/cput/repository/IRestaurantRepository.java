@@ -5,13 +5,16 @@ Date: 7 April 2022
  */
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Restaurant;
 
-import java.util.Set;
 
-public interface IRestaurantRepository extends IRepository<Restaurant,String>  {
+
+@Repository
+public interface IRestaurantRepository extends JpaRepository<Restaurant,String> {
 //create, read, update, delete
-public Set<Restaurant> getAll();
+
 
 
 }
