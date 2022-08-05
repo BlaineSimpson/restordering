@@ -5,11 +5,11 @@ Date: 7 April 2022
  */
 package za.ac.cput.factory;
 
-import za.ac.cput.entity.Table;
+import za.ac.cput.entity.Tablee;
 
 public class TableFactory {
-public static Table createTable (String tableId, int tableNo, int noOfSeats, boolean isTableAvailable){
- Table table = new Table.Builder() .setTableId(tableId)
+public static Tablee createTable (String tableId, String tableNo, String noOfSeats, boolean isTableAvailable){
+ Tablee table = new Tablee.Builder() .setTableId(tableId)
          .setTableNo(tableNo)
          .setNoOfSeats(noOfSeats)
          .setTableAvailable(isTableAvailable)
