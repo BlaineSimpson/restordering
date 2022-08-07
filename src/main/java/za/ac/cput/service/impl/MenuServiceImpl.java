@@ -1,5 +1,10 @@
 package za.ac.cput.service.impl;
+/* MenuServiceImpl.java
+ Entity for the Menu
+ Author: Blaine Simpson (218020171)
 
+
+ */
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Menu;
 import za.ac.cput.repository.IMenuRepository;
@@ -10,34 +15,38 @@ import java.util.Optional;
 
 @Service
 public class MenuServiceImpl implements IMenuService {
-    private final IMenuRepository mrepository;
+    private final IMenuRepository repository;
 
-    public MenuServiceImpl(IMenuRepository mrepository) {
-        this.mrepository = mrepository;
+    public MenuServiceImpl(IMenuRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     public Menu save(Menu menu) {
-        return null;
+        return this.repository.save(menu);
     }
 
     @Override
-    public Optional<Menu> findById(String s) {
-        return Optional.empty();
+    public Optional<Menu> findById(String id) {
+        return this.repository.findById(id);
     }
 
     @Override
     public void delete(Menu menu) {
-
+        this.repository.delete(menu);
     }
 
     @Override
     public List<Menu> findAll() {
-        return null;
+        return this.repository.findAll();
     }
 
     @Override
-    public void deleteById(String s) {
+    public void deleteById(String id) {
+        Optional<Menu> menu = findById(id);
+        if (menu.isPresent()){
+            delete(menu.get());
+        }
 
     }
 }
