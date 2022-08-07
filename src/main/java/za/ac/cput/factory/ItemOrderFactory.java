@@ -10,7 +10,7 @@ import za.ac.cput.entity.ItemOrder;
  */
 public class ItemOrderFactory {
 
-    public static ItemOrder createItem(String ItemId, String ItemName, String NumberofPlates){
+    public static ItemOrder createItemOrder(String ItemId, String ItemName, String NumberofPlates){
       return new ItemOrder.Builder().setItemId(ItemId)
               .setItemName(ItemName)
               .setNumberofPlates(NumberofPlates)

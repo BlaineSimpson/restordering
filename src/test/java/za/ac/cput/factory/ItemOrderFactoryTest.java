@@ -14,7 +14,7 @@ class ItemOrderFactoryTest {
      */
     @Test
     void createItem() {
-        ItemOrder item = ItemOrderFactory.createItem("1","Pizza", "8");
+        ItemOrder item = ItemOrderFactory.createItemOrder("1","Pizza", "8");
         System.out.println(item);
         assertNotNull(item);
     }
