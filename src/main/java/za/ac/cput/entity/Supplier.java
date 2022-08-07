@@ -1,31 +1,43 @@
-package za.ac.cput.entity;
-
 /*
-IRepository.java
-Author: Shuaib Allie (217148867)
-Date: 1 April 2022
+
+Author Shuaib Allie (217148867)
+
  */
 
-public class Supplier {
+package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Entity
+public class Supplier implements Serializable {
+    @NotNull
+    @Id
     private String suppName;
-
+    @NotNull
     private String suppPhysAddress;
-
+    @NotNull
     private String suppEmail;
+    @NotNull
     private int suppPhone;
+    @NotNull
     private int suppID;
 
 
-    private Supplier(){}
 
-    private Supplier(Supplier.Builder builder){
+    private Supplier(Builder builder ){
         this.suppName=builder.suppName;
         this.suppPhysAddress=builder.suppPhysAddress;
         this.suppEmail=builder.suppEmail;
         this.suppPhone=builder.suppPhone;
         this.suppID=builder.suppID;
 
+    }
+
+    protected Supplier() {
 
     }
 
@@ -60,6 +72,13 @@ public class Supplier {
                 ", supPhone='" + suppPhone + '\'' +
                 ", supID='" + suppID + '\'' +
                 '}';
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(suppName, suppPhysAddress, suppEmail, suppPhone, suppID);
     }
 
     public static class Builder{
@@ -113,4 +132,3 @@ public class Supplier {
     }
 
 }
-

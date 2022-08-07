@@ -1,10 +1,10 @@
-package za.ac.cput.factory;
-
 /*
-IRepository.java
-Author: Shuaib Allie (217148867)
-Date: 1 April 2022
+
+Author Shuaib Allie
+
  */
+
+package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.entity.Supplier;
@@ -12,10 +12,15 @@ import za.ac.cput.entity.Supplier;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SupplierFactoryTest {
-@Test
-    void createSupplier(){
-    Supplier supplier = SupplierFactory.createSupplier("Corner Butcher", "4 Adams Avenue, Cape Town", "cornerbuther@gmail.com", 0241245632, 254);
-    System.out.println(supplier);
-    assertNotNull(supplier);
-}
+
+    @Test
+    void createSupplier() {
+        Supplier supplier= SupplierFactory.createSupplier("Davids","2 Unity Road","davids34@gmail.com",021457457, 22);
+        assertNotNull(supplier);
+        System.out.println("Create Supplier ");
+        System.out.println(supplier);
+        System.out.println("Supplier added....");
+    }
+
+
 }
