@@ -1,15 +1,15 @@
 /*
-ITableRepository.java
+TableRepository.java
 Author Demi Alexis Farquhar (220322104)
-Date:  April 2022
+Date: 5 August 2022
  */
 package za.ac.cput.repository;
 
-import za.ac.cput.entity.Table;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import za.ac.cput.entity.Tablee;
 
-import java.util.Set;
 
-public interface ITableRepository extends IRepository<Table,String>{
-    //create, read, update, delete
-    public Set<Table> getAll();
+@Repository
+public interface ITableRepository extends JpaRepository <Tablee, String> {
 }
