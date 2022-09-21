@@ -6,15 +6,17 @@ Date: 7 April 2022
 package za.ac.cput.factory;
 
 import za.ac.cput.entity.Restaurant;
+import za.ac.cput.util.LoginHelper;
 
 public class RestaurantFactory {
     public static Restaurant createRestaurant(String restaurantId, String restaurantName,String restaurantaAdress, boolean isOpen){
-    Restaurant restaurant= new Restaurant.Builder().setRestaurantId(restaurantId)
-            .setRestaurantName(restaurantName)
-            .setRestaurantAddress(restaurantaAdress)
-            .setOpen(isOpen)
-            .build();
-    return restaurant;
+
+        LoginHelper.checkStringParam("restaurantId",restaurantId);
+        LoginHelper.checkStringParam("restaurantName",restaurantName);
+        LoginHelper.checkStringParam("restaurantAddress",restaurantaAdress);
+        LoginHelper.checkIfObjectNull("isOpen", isOpen);
+
+    return new Restaurant.Builder().setRestaurantId(restaurantId).setRestaurantName(restaurantName).setRestaurantAddress(restaurantaAdress).setOpen(isOpen).build();
     }
 
 

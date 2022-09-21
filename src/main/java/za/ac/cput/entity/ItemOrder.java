@@ -1,15 +1,23 @@
 package za.ac.cput.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+
 /* ItemOrder.java
  Entity for the ItemOrder
  Author: Blaine Simpson (218020171)
  Date: 01 April 2022
 
  */
-public class ItemOrder {
-
+@Entity
+public class ItemOrder implements Serializable {
+ @Id
     private String ItemId;
+ @NotNull
     private String ItemName;
+ @NotNull
     private String NumberofPlates;
 
 
@@ -24,6 +32,10 @@ public class ItemOrder {
         ItemId = itemId;
         ItemName = itemName;
         this.NumberofPlates = NumberofPlates;
+    }
+
+    public ItemOrder() {
+
     }
 
     public String getItemId() {
