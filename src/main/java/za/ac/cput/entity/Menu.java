@@ -5,11 +5,17 @@ package za.ac.cput.entity;
  Date: 02 April 2022
 
  */
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-
-public class Menu {
+@Entity
+public class Menu implements Serializable {
+    @Id
     private String MenuId;
+    @NotNull
     private String MenuT;
 
     private Menu(Builder builder){
@@ -21,6 +27,10 @@ public class Menu {
     public Menu(String menuId, String menuT) {
         MenuId = menuId;
         MenuT = menuT;
+    }
+
+    public Menu() {
+
     }
 
     public String getMenuId() {

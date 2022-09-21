@@ -14,16 +14,7 @@ import java.util.Set;
 
 @Repository
 public interface ISupplierRepository extends JpaRepository<Supplier,String> {
-    Supplier create(Supplier supplier);
 
-    Supplier read(String inv);
-
-    Supplier update(Supplier supplier);
-
-    boolean delete(String inv);
-
-    Set<Supplier> getAll();
-//create, read, update, delete
 
 
 
