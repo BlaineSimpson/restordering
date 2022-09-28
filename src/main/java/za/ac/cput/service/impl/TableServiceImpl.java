@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import org.springframework.stereotype.Service;
+import za.ac.cput.entity.Item;
 import za.ac.cput.entity.Tablee;
 import za.ac.cput.repository.ITableRepository;
 import za.ac.cput.service.ITableService;
@@ -34,7 +35,7 @@ public class TableServiceImpl implements ITableService {
     }
 
     @Override
-    public Optional<Tablee> findById(String id) {
+    public Optional<Item> findById(String id) {
         return this.repository.findById(id);
     }
 
@@ -44,7 +45,7 @@ public class TableServiceImpl implements ITableService {
     }
 
     @Override
-    public List<Tablee> findAll() {
+    public List<Item> findAll() {
         return this.repository.findAll();
     }
 

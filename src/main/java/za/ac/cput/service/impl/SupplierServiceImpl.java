@@ -8,6 +8,7 @@ package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.entity.Item;
 import za.ac.cput.entity.Supplier;
 import za.ac.cput.repository.ISupplierRepository;
 import za.ac.cput.service.ISupplierService;
@@ -33,7 +34,7 @@ public class SupplierServiceImpl implements ISupplierService {
     }
 
     @Override
-    public Optional<Supplier> findById(String id) {
+    public Optional<Item> findById(String id) {
         return this.repository.findById(id);
     }
 
@@ -44,7 +45,7 @@ public class SupplierServiceImpl implements ISupplierService {
     }
 
     @Override
-    public List<Supplier> findAll() {
+    public List<Item> findAll() {
         return this.repository.findAll();
     }
 

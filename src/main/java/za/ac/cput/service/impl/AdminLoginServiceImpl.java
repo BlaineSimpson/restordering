@@ -8,6 +8,7 @@ package za.ac.cput.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.AdminLogin;
+import za.ac.cput.entity.Item;
 import za.ac.cput.repository.IAdminLoginRepository;
 import za.ac.cput.service.IAdminLoginService;
 
@@ -30,7 +31,7 @@ public class AdminLoginServiceImpl implements IAdminLoginService {
     }
 
     @Override
-    public Optional<AdminLogin> findById(String id) {
+    public Optional<Item> findById(String id) {
         return this.repository.findById(id);
     }
 
@@ -40,7 +41,7 @@ public class AdminLoginServiceImpl implements IAdminLoginService {
     }
 
     @Override
-    public List<AdminLogin> findAll() {
+    public List<Item> findAll() {
         return this.repository.findAll();
     }
 

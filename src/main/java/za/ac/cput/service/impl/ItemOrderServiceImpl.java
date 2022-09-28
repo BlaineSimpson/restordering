@@ -7,6 +7,7 @@ package za.ac.cput.service.impl;
  */
 
 import org.springframework.stereotype.Service;
+import za.ac.cput.entity.Item;
 import za.ac.cput.entity.ItemOrder;
 import za.ac.cput.service.IItemOrderService;
 
@@ -30,7 +31,7 @@ public class ItemOrderServiceImpl implements IItemOrderService {
     }
 
     @Override
-    public Optional<ItemOrder> findById(String id) {
+    public Optional<Item> findById(String id) {
         return this.repository.findById(id);
     }
 
@@ -41,7 +42,7 @@ public class ItemOrderServiceImpl implements IItemOrderService {
     }
 
     @Override
-    public List<ItemOrder> findAll() {
+    public List<Item> findAll() {
         return this.repository.findAll();
     }
 

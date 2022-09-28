@@ -9,6 +9,7 @@ package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.entity.Item;
 import za.ac.cput.entity.Restaurant;
 import za.ac.cput.repository.IRestaurantRepository;
 import za.ac.cput.service.IRestaurantService;
@@ -34,7 +35,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
     }
 
     @Override
-    public Optional<Restaurant> findById(String id) {
+    public Optional<Item> findById(String id) {
         return this.repository.findById(id);
     }
 
@@ -45,7 +46,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
     }
 
     @Override
-    public List<Restaurant> findAll() {
+    public List<Item> findAll() {
         return this.repository.findAll();
     }
 
