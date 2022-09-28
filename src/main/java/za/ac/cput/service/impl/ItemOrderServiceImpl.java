@@ -31,7 +31,7 @@ public class ItemOrderServiceImpl implements IItemOrderService {
     }
 
     @Override
-    public Optional<Item> findById(String id) {
+    public Optional<ItemOrder> findById(String id) {
         return this.repository.findById(id);
     }
 
@@ -42,7 +42,7 @@ public class ItemOrderServiceImpl implements IItemOrderService {
     }
 
     @Override
-    public List<Item> findAll() {
+    public List<ItemOrder> findAll() {
         return this.repository.findAll();
     }
 

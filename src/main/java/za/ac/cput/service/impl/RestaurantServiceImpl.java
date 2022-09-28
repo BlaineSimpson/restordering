@@ -35,7 +35,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
     }
 
     @Override
-    public Optional<Item> findById(String id) {
+    public Optional<Restaurant> findById(String id) {
         return this.repository.findById(id);
     }
 
@@ -46,7 +46,7 @@ public class RestaurantServiceImpl implements IRestaurantService {
     }
 
     @Override
-    public List<Item> findAll() {
+    public List<Restaurant> findAll() {
         return this.repository.findAll();
     }
 

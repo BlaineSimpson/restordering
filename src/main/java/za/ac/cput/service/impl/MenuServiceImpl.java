@@ -28,7 +28,7 @@ public class MenuServiceImpl implements IMenuService {
     }
 
     @Override
-    public Optional<Item> findById(String id) {
+    public Optional<Menu> findById(String id) {
         return this.repository.findById(id);
     }
 
@@ -38,7 +38,7 @@ public class MenuServiceImpl implements IMenuService {
     }
 
     @Override
-    public List<Item> findAll() {
+    public List<Menu> findAll() {
         return this.repository.findAll();
     }
 

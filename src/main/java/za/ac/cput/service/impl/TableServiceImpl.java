@@ -35,7 +35,7 @@ public class TableServiceImpl implements ITableService {
     }
 
     @Override
-    public Optional<Item> findById(String id) {
+    public Optional<Tablee> findById(String id) {
         return this.repository.findById(id);
     }
 
@@ -45,7 +45,7 @@ public class TableServiceImpl implements ITableService {
     }
 
     @Override
-    public List<Item> findAll() {
+    public List<Tablee> findAll() {
         return this.repository.findAll();
     }
 

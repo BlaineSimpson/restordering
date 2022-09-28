@@ -34,7 +34,7 @@ public class SupplierServiceImpl implements ISupplierService {
     }
 
     @Override
-    public Optional<Item> findById(String id) {
+    public Optional<Supplier> findById(String id) {
         return this.repository.findById(id);
     }
 
@@ -45,7 +45,7 @@ public class SupplierServiceImpl implements ISupplierService {
     }
 
     @Override
-    public List<Item> findAll() {
+    public List<Supplier> findAll() {
         return this.repository.findAll();
     }
 
