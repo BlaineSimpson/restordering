@@ -27,7 +27,7 @@ public class Item {
 
 
     //getters and setters
-    public Integer getID() {
+    public String getID() {
         return ID;
     }
 
