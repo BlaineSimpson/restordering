@@ -9,6 +9,7 @@ package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.entity.Item;
 import za.ac.cput.entity.Restaurant;
 import za.ac.cput.repository.IRestaurantRepository;
 import za.ac.cput.service.IRestaurantService;

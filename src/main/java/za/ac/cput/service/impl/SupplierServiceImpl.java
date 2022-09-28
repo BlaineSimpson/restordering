@@ -8,6 +8,7 @@ package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import za.ac.cput.entity.Item;
 import za.ac.cput.entity.Supplier;
 import za.ac.cput.repository.ISupplierRepository;
 import za.ac.cput.service.ISupplierService;
