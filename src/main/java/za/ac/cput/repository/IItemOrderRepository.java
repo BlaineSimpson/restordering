@@ -1,6 +1,7 @@
 package za.ac.cput.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.ItemOrder;
 
 import java.util.Set;
@@ -10,7 +11,7 @@ import java.util.Set;
 
 
  */
-
+@Repository
 public interface IItemOrderRepository extends JpaRepository<ItemOrder,String> {
 //create,update,read,delete
 }

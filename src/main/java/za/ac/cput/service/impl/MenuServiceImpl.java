@@ -5,6 +5,7 @@ package za.ac.cput.service.impl;
 
 
  */
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Item;
 import za.ac.cput.entity.Menu;
@@ -18,6 +19,7 @@ import java.util.Optional;
 public class MenuServiceImpl implements IMenuService {
     private final IMenuRepository repository;
 
+    @Autowired
     public MenuServiceImpl(IMenuRepository repository) {
         this.repository = repository;
     }

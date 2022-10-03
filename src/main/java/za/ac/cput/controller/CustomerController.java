@@ -10,14 +10,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import za.ac.cput.entity.AdminLogin;
 import za.ac.cput.entity.Customer;
+import za.ac.cput.entity.Inventory;
 import za.ac.cput.service.ICustomerService;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping
+@RequestMapping("restaurant/customer")
 @Slf4j
 public class CustomerController {
     private final ICustomerService customerService;
@@ -27,18 +29,11 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-
-    /*@PostMapping("save")
-    public ResponseEntity<Customer> save(@Valid @RequestBody Customer customer) {
-        log.info("Save request: {}", customer);
-        Customer save = customerService.save(customer);
-        return ResponseEntity.ok(save);
-    }*/
     @PostMapping("save")
-    public ResponseEntity<Customer> save(@Valid @RequestBody Customer customer) {
-        log.info("Save request: {}", customer);
-        Customer save = customerService.save(customer);
-        return ResponseEntity.ok(save);
+    public ResponseEntity<Customer> save(@Valid @RequestBody Customer customer){
+        log.info("Save Request: {}", customer);
+        Customer insert = customerService.save(customer);
+        return ResponseEntity.ok(insert);
     }
 
 

@@ -1,17 +1,31 @@
 package za.ac.cput.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
 /* Customer .java
  Entity for the Customer
  Author: Sinovuyo Mlanjeni (219220387)
  Date: 04 April 2022
 */
-public class Customer {
+@Entity
+public class Customer implements Serializable {
+  @Id
+  @NotNull
     private String cusId;
+  @NotNull
     private String cusFName;
+  @NotNull
     private String cusLName;
+  @NotNull
     private String cusEmail;
+  @NotNull
     private String cusAddress;
 
-    private Customer() {
+    protected Customer() {
 
     }
 
@@ -42,6 +56,19 @@ public class Customer {
 
     public String getCusAddress() {
         return cusAddress;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Customer customer = (Customer) o;
+        return cusId.equals(customer.cusId) && cusFName.equals(customer.cusFName) && cusLName.equals(customer.cusLName) && cusEmail.equals(customer.cusEmail) && cusAddress.equals(customer.cusAddress);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cusId, cusFName, cusLName, cusEmail, cusAddress);
     }
 
     @Override

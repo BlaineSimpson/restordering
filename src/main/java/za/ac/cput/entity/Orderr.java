@@ -7,29 +7,40 @@ Date: 9 April 2022
 
 package za.ac.cput.entity;
 
-public class Order {
-    private Integer customerID;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Entity
+public class Orderr implements Serializable {
+    @Id
+    @NotNull
+    private String orderID;
+    @NotNull
     private String orderDate;
+    @NotNull
     private boolean isReady;
 
-    private Order(){
+   protected Orderr(){
     }
 
 
-    private Order(Builder builder){
-        this.customerID=builder.customerID;
+    private Orderr(Builder builder){
+        this.orderID=builder.orderID;
         this.orderDate=builder.orderDate;
         this.isReady=builder.isReady;
     }
 
 
     //getters and setters
-    public Integer getCustomerID() {
-        return customerID;
+    public String getOrderID() {
+        return orderID;
     }
 
-    public void setCustomerID(Integer customerID) {
-        this.customerID = customerID;
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
     }
 
     public String getOrderDate() {
@@ -49,26 +60,38 @@ public class Order {
     }
     //end of getters and setters
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Orderr order = (Orderr) o;
+        return isReady == order.isReady && orderID.equals(order.orderID) && orderDate.equals(order.orderDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(orderID, orderDate, isReady);
+    }
 
     @Override
     public String toString() {
         return "Order{" +
-                "customerID=" + customerID +
+                "orderID='" + orderID + '\'' +
                 ", orderDate='" + orderDate + '\'' +
                 ", isReady=" + isReady +
                 '}';
     }
-    //end of toString
+//end of toString
 
 
 
     public static class Builder{
-        private Integer customerID;
+        private String orderID;
         private String orderDate;
         private boolean isReady;
 
-        public Builder setCustomerID(Integer customerID) {
-            this.customerID = customerID;
+        public Builder setOrderId(String orderID) {
+            this.orderID = orderID;
             return this;
         }
 
@@ -82,14 +105,14 @@ public class Order {
             return this;
         }
 
-        public Builder copy (Order order){
-            this.customerID=order.customerID;
+        public Builder copy (Orderr order){
+            this.orderID=order.orderID;
             this.orderDate=order.orderDate;
             this.isReady=order.isReady;
             return this;
         }
-        public Order build(){
-            return new Order(this);
+        public Orderr build(){
+            return new Orderr(this);
         }
     }
 }

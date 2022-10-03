@@ -6,6 +6,7 @@
 package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import za.ac.cput.entity.Bill;
 import za.ac.cput.entity.Customer;
 import za.ac.cput.repository.IBillRepository;
@@ -15,6 +16,7 @@ import za.ac.cput.service.ICustomerService;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class CustomerServiceImpl implements ICustomerService {
 
     private final ICustomerRepository repository;

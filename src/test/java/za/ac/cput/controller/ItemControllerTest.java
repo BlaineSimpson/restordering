@@ -36,7 +36,7 @@ public class ItemControllerTest {
 
     @BeforeEach
     void setUp(){
-        item = ItemFactory.createItem(1, 13, 15, 10.99);
+        item = ItemFactory.createItem("1", "13", "15", "10.99");
         baseUrl = "http://localhost:" + port + "/restaurant/item/";
     }
     @Test

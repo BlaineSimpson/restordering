@@ -20,7 +20,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("menu/menu")
+@RequestMapping("restaurant/menu")
 @Slf4j
 
 public class MenuController {

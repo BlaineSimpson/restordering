@@ -14,6 +14,7 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import za.ac.cput.entity.AdminLogin;
 import za.ac.cput.entity.Customer;
 import za.ac.cput.factory.CustomerFactory;
 
@@ -28,8 +29,8 @@ class CustomerControllerTest {
     private int port;
 
     @Autowired
-    private AdminLoginController controller;
-    //Used to test our web services
+    private CustomerController controller;
+
     @Autowired
     private TestRestTemplate restTemplate;
 
@@ -39,7 +40,7 @@ class CustomerControllerTest {
     @BeforeEach
     void setUp(){
         customer = CustomerFactory.createCustomer("57522", "Mike", "Williams", "586852@cput.ac.za", "1 Hofmayr Lane, Cape Town");
-        baseUrl = "http://localhost:" + port + "/customer/customer/";
+        baseUrl = "http://localhost:" + port + "/restaurant/customer/";
     }
 
     @Test

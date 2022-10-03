@@ -13,6 +13,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import za.ac.cput.entity.Item;
 import za.ac.cput.entity.ItemOrder;
 import za.ac.cput.factory.ItemOrderFactory;
 
@@ -37,7 +38,7 @@ class ItemOrderControllerTest {
     @BeforeEach
     void setup(){
         itemOrder = ItemOrderFactory.createItemOrder("B","Chips", "3");
-        this.baseUrl= "http://localhost:"+ this.port+"/itemOrder/itemOrder/";
+        this.baseUrl= "http://localhost:"+ this.port+"/restaurant/itemOrder/";
         assertNotNull (itemOrderController);
 
     }
@@ -45,13 +46,11 @@ class ItemOrderControllerTest {
     @Order(1)
     void save() {
         String url = baseUrl + "save";
-        System.out.println(url);
-        ResponseEntity<ItemOrder> response = this.restTemplate
-                .postForEntity(url, this.itemOrder, ItemOrder.class);
-        System.out.println(response);
+        ResponseEntity<ItemOrder> response = restTemplate.postForEntity(url, this.itemOrder, ItemOrder.class);
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                ()-> assertNotNull(response.getBody()));
+                () -> assertNotNull(response.getBody())
+        );
     }
 
     @Test

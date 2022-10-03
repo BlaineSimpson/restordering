@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import za.ac.cput.entity.Item;
-import za.ac.cput.service.IItemOrderService;
+import za.ac.cput.service.IItemService;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -22,16 +22,16 @@ import java.util.Optional;
 @Slf4j
 public class ItemController {
 
-    private final IItemOrderService itemService;
+    private final IItemService itemService;
     @Autowired
-    public ItemController(IItemOrderService itemService) {
+    public ItemController(IItemService itemService) {
         this.itemService = itemService;
     }
 
     @PostMapping("save")
     public ResponseEntity<Item> save(@Valid @RequestBody Item item){
         log.info("Save Request: {}", item);
-        AdminLogin insert = itemService.save(item);
+        Item insert = itemService.save(item);
         return ResponseEntity.ok(insert);
     }
 

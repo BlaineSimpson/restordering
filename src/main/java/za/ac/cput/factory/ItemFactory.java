@@ -11,8 +11,8 @@ import za.ac.cput.entity.Item;
 
 public class ItemFactory {
 
-    public static Item createItem(Integer identityNum, Integer orderID, Integer numStock, double price){
-        Item item = new Item.Builder().setID(identityNum)
+    public static Item createItem(String orderId, String orderID, String numStock, String price){
+        Item item = new Item.Builder().setID(orderID)
                 .setOrderID(orderID)
                 .setQuantity(numStock)
                 .setPrice(price)

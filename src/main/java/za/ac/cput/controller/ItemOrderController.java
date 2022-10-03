@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("itemOrder/itemOrder")
+@RequestMapping("restaurant/itemOrder")
 @Slf4j
 public class ItemOrderController {
 
@@ -43,13 +43,13 @@ private  final IItemOrderService itemOrderService;
         return ResponseEntity.ok(itemOrder);
     }
         @DeleteMapping("delete-itemOrder")
-        public ResponseEntity<Void> delete(@PathVariable String itemOrder){
+        public ResponseEntity<ItemOrder> delete(@PathVariable String itemOrder){
             log.info("Delete request: {}",itemOrder);
             this.itemOrderService.deleteById(itemOrder);
             return ResponseEntity.noContent().build();
     }
     @DeleteMapping("delete/{id}")
-    public ResponseEntity<Void> deleteById(@PathVariable String id){
+    public ResponseEntity<ItemOrder> deleteById(@PathVariable String id){
         log.info("Delete request: {}",id);
         this.itemOrderService.deleteById(id);
         return ResponseEntity.noContent().build();
