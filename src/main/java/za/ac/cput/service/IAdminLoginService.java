@@ -5,7 +5,7 @@
 */
 package za.ac.cput.service;
 
-import za.ac.cput.entity.AdminLogin;
+import za.ac.cput.domain.AdminLogin;
 
 public interface IAdminLoginService extends IService<AdminLogin, String>{
 }

@@ -6,7 +6,7 @@ Date: 25 September 2022
 
 package za.ac.cput.service;
 
-import za.ac.cput.entity.Orderr;
+import za.ac.cput.domain.Orderr;
 
 public interface IOrderService extends IService<Orderr, String>{
 }

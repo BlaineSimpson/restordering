@@ -4,7 +4,7 @@ Author Shuaib Allie (217148867)
 
  */
 
-package za.ac.cput.entity;
+package za.ac.cput.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

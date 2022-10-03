@@ -6,7 +6,7 @@
 
 package za.ac.cput.factory;
 
-import za.ac.cput.entity.UserLogin;
+import za.ac.cput.domain.UserLogin;
 import za.ac.cput.util.LoginHelper;
 
 public class UserLoginFactory {

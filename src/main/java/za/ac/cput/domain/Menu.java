@@ -1,4 +1,4 @@
-package za.ac.cput.entity;
+package za.ac.cput.domain;
 /* Menu.java
  Entity for the Menu
  Author: Blaine Simpson (218020171)
@@ -9,8 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+
 @Entity
 public class Menu implements Serializable {
     @Id

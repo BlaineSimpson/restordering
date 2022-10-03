@@ -9,7 +9,7 @@ package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.entity.Orderr;
+import za.ac.cput.domain.Orderr;
 import za.ac.cput.repository.IOrderRepository;
 import za.ac.cput.service.IOrderService;
 

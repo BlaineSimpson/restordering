@@ -13,8 +13,10 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.Item;
-import za.ac.cput.entity.ItemOrder;
+import za.ac.cput.domain.AdminLogin;
+import za.ac.cput.domain.ItemOrder;
+
+import za.ac.cput.factory.AdminLoginFactory;
 import za.ac.cput.factory.ItemOrderFactory;
 
 
@@ -35,19 +37,20 @@ class ItemOrderControllerTest {
     private ItemOrder itemOrder;
     private String baseUrl;
 
-    @BeforeEach
-    void setup(){
-        itemOrder = ItemOrderFactory.createItemOrder("B","Chips", "3");
-        this.baseUrl= "http://localhost:"+ this.port+"/restaurant/itemOrder/";
-        assertNotNull (itemOrderController);
 
+    @BeforeEach
+    void setUp() {
+        itemOrder = ItemOrderFactory.createItemOrder("1", "username", "password");
+        baseUrl = "http://localhost:" + port + "/restaurant/admin/";
     }
+
     @Test
     @Order(1)
     void save() {
         String url = baseUrl + "save";
         ResponseEntity<ItemOrder> response = restTemplate.postForEntity(url, this.itemOrder, ItemOrder.class);
         assertAll(
+
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
                 () -> assertNotNull(response.getBody())
         );
@@ -55,25 +58,36 @@ class ItemOrderControllerTest {
 
     @Test
     @Order(2)
-    void findId() {
-        String url =baseUrl+"find/" +this.itemOrder.getItemId();
-        ResponseEntity<ItemOrder>response = this.restTemplate.getForEntity(url, ItemOrder.class);
+    void findById() {
+        String url = baseUrl + "find/" + this.itemOrder.getItemId();
+        ResponseEntity<ItemOrder> response = this.restTemplate.getForEntity(url, ItemOrder.class);
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
                 () -> assertNotNull(response.getBody())
         );
         System.out.println(url);
         System.out.println(response);
+    }
 
+    @Test
+    @Order(3)
+    void findAll() {
+        String url = baseUrl + "all";
+        ResponseEntity<ItemOrder[]> response = restTemplate.getForEntity(url, ItemOrder[].class);
+        System.out.println(Arrays.asList(response.getBody()));
+        assertAll(
+                () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
+
+                () -> assertTrue(response.getBody().length == 1)
+        );
     }
 
     @Test
     @Order(4)
-    void delete(){
+    void delete() {
         String url = baseUrl + "delete-itemOrder";
         restTemplate.delete(url);
         System.out.println(url);
-
     }
 
     @Test
@@ -82,18 +96,5 @@ class ItemOrderControllerTest {
         String url = baseUrl + "delete/" + itemOrder.getItemId();
         restTemplate.delete(url);
         System.out.println(url);
-    }
-
-    @Test
-    @Order(3)
-    void findAll() {
-        String url = baseUrl +"all";
-        System.out.println(url);
-        ResponseEntity<ItemOrder[]> response = this.restTemplate.getForEntity(url, ItemOrder[].class);
-        System.out.println(Arrays.asList(response.getBody()));
-        assertAll(
-                () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                () -> assertEquals(1, response.getBody().length)
-        );
     }
 }

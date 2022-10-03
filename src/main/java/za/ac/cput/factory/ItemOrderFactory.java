@@ -1,6 +1,6 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.entity.ItemOrder;
+import za.ac.cput.domain.ItemOrder;
 
 /* ItemOrderFactory.java
  Entity for the ItemOrder
@@ -10,10 +10,10 @@ import za.ac.cput.entity.ItemOrder;
  */
 public class ItemOrderFactory {
 
-    public static ItemOrder createItemOrder(String ItemId, String ItemName, String NumberofPlates){
+    public static ItemOrder createItemOrder(String ItemId, String ItemName, String NumberOfPlates){
       return new ItemOrder.Builder().setItemId(ItemId)
               .setItemName(ItemName)
-              .setNumberofPlates(NumberofPlates)
+              .setNumberOfPlates(NumberOfPlates)
               .build();
 
 

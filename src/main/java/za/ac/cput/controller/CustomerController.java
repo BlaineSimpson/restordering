@@ -10,13 +10,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.entity.AdminLogin;
-import za.ac.cput.entity.Customer;
-import za.ac.cput.entity.Inventory;
+import za.ac.cput.domain.AdminLogin;
+import za.ac.cput.domain.Customer;
 import za.ac.cput.service.ICustomerService;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("restaurant/customer")
@@ -29,6 +29,7 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
+
     @PostMapping("save")
     public ResponseEntity<Customer> save(@Valid @RequestBody Customer customer){
         log.info("Save Request: {}", customer);
@@ -36,13 +37,11 @@ public class CustomerController {
         return ResponseEntity.ok(insert);
     }
 
-
     @GetMapping("find/{id}")
-    public ResponseEntity<Customer> findById(@PathVariable String id) {
-        log.info("Find by id request: {}", id);
-        Customer customer= this.customerService.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return ResponseEntity.ok(customer);
+    public ResponseEntity<Optional<Customer>> findById(@PathVariable String id){
+        log.info("Read Request: {}", id);
+        Optional<Customer> find = customerService.findById(id);
+        return ResponseEntity.ok(find);
     }
 
     @DeleteMapping("delete-customer")

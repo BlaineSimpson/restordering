@@ -8,9 +8,7 @@ package za.ac.cput.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import za.ac.cput.entity.UserLogin;
-
-import java.util.Set;
+import za.ac.cput.domain.UserLogin;
 
 @Repository
 public interface IUserLoginRepository extends JpaRepository<UserLogin, String> {

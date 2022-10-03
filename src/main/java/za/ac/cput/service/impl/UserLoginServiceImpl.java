@@ -7,7 +7,7 @@ package za.ac.cput.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.entity.UserLogin;
+import za.ac.cput.domain.UserLogin;
 import za.ac.cput.repository.IUserLoginRepository;
 import za.ac.cput.service.IUserLoginService;
 

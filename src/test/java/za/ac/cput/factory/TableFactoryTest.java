@@ -7,7 +7,7 @@ Date: 7 April 2022
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.Tablee;
+import za.ac.cput.domain.Tablee;
 
 import static org.junit.jupiter.api.Assertions.*;
 

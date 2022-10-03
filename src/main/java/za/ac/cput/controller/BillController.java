@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.entity.Bill;
+import za.ac.cput.domain.Bill;
 import za.ac.cput.service.IBillService;
 import javax.validation.Valid;
 import java.util.List;

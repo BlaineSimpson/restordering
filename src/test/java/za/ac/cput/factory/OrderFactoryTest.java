@@ -2,7 +2,7 @@ package za.ac.cput.factory;
 
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.Orderr;
+import za.ac.cput.domain.Orderr;
 
 class OrderFactoryTest {
     @Test

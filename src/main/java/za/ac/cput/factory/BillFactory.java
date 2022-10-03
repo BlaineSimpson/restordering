@@ -4,7 +4,7 @@ package za.ac.cput.factory;
  Date: 04 April 2022
 */
 
-import za.ac.cput.entity.Bill;
+import za.ac.cput.domain.Bill;
 
 
 public class BillFactory {

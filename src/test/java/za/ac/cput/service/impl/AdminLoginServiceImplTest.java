@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.entity.AdminLogin;
+import za.ac.cput.domain.AdminLogin;
 import za.ac.cput.factory.AdminLoginFactory;
 
 import java.util.List;

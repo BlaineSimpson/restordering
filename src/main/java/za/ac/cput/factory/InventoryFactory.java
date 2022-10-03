@@ -6,7 +6,7 @@ Author: Shuaib Allie (217148867)
 Date: 1 April 2022
  */
 
-import za.ac.cput.entity.Inventory;
+import za.ac.cput.domain.Inventory;
 
 public class InventoryFactory {
 

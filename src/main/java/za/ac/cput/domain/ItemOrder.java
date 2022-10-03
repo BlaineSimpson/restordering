@@ -1,9 +1,10 @@
-package za.ac.cput.entity;
+package za.ac.cput.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Objects;
 
 /* ItemOrder.java
  Entity for the ItemOrder
@@ -14,24 +15,25 @@ import java.io.Serializable;
 @Entity
 public class ItemOrder implements Serializable {
  @Id
+ @NotNull
     private String ItemId;
  @NotNull
     private String ItemName;
  @NotNull
-    private String NumberofPlates;
+    private String NumberOfPlates;
 
 
    private ItemOrder(Builder builder){
         this.ItemId = builder.ItemId;
         this.ItemName = builder.ItemName;
-        this.NumberofPlates = builder.NumberofPlates;
+        this.NumberOfPlates = builder.NumberOfPlates;
 
     }
 
-    public ItemOrder(String itemId, String itemName, String NumberofPlates) {
+    public ItemOrder(String itemId, String itemName, String NumberOfPlates) {
         ItemId = itemId;
         ItemName = itemName;
-        this.NumberofPlates = NumberofPlates;
+        this.NumberOfPlates = NumberOfPlates;
     }
 
     public ItemOrder() {
@@ -55,11 +57,24 @@ public class ItemOrder implements Serializable {
     }
 
     public String getPrice() {
-        return NumberofPlates;
+        return NumberOfPlates;
     }
 
-    public void setNumberofPlates(String NumberofPlates) {
-        this.NumberofPlates = NumberofPlates;
+    public void setNumberOfPlates(String NumberOfPlates) {
+        this.NumberOfPlates = NumberOfPlates;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ItemOrder itemOrder = (ItemOrder) o;
+        return ItemId.equals(itemOrder.ItemId) && ItemName.equals(itemOrder.ItemName) && NumberOfPlates.equals(itemOrder.NumberOfPlates);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(ItemId, ItemName, NumberOfPlates);
     }
 
     @Override
@@ -67,7 +82,7 @@ public class ItemOrder implements Serializable {
         return "Item{" +
                 "ItemId=" + ItemId +
                 ", ItemName='" + ItemName + '\'' +
-                ", NumberofPlates=" + NumberofPlates +
+                ", NumberOfPlates=" + NumberOfPlates +
                 '}';
     }
 
@@ -75,7 +90,7 @@ public class ItemOrder implements Serializable {
 
         private String ItemId;
         private String ItemName;
-        private String NumberofPlates;
+        private String NumberOfPlates;
 
 
         public Builder setItemId(String itemId) {
@@ -88,15 +103,15 @@ public class ItemOrder implements Serializable {
             return this;
         }
 
-        public Builder setNumberofPlates(String NumberofPlates) {
-            this.NumberofPlates = NumberofPlates;
+        public Builder setNumberOfPlates(String NumberOfPlates) {
+            this.NumberOfPlates = NumberOfPlates;
             return this;
 
         }
         public Builder copy(ItemOrder item){
           this.ItemId = item.ItemId;
           this.ItemName =item.ItemName;
-          this.NumberofPlates = item.NumberofPlates;
+          this.NumberOfPlates = item.NumberOfPlates;
           return this;
 
 

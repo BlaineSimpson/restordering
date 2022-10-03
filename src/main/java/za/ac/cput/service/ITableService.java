@@ -5,7 +5,7 @@ Date: 5 August 2022
  */
 package za.ac.cput.service;
 
-import za.ac.cput.entity.Tablee;
+import za.ac.cput.domain.Tablee;
 
 public interface ITableService extends IService<Tablee,String> {
 

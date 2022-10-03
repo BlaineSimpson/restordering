@@ -1,4 +1,4 @@
-package za.ac.cput.entity;
+package za.ac.cput.domain;
 /* Bill.java
   Entity for the Bill
    Author: Sinovuyo Mlanjeni (219220387)

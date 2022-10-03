@@ -7,7 +7,7 @@ Date: 9 April 2022
 
 package za.ac.cput.factory;
 
-import za.ac.cput.entity.Orderr;
+import za.ac.cput.domain.Orderr;
 
 public class OrderFactory {
 

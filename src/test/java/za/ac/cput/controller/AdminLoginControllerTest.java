@@ -12,7 +12,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.AdminLogin;
+import za.ac.cput.domain.AdminLogin;
 import za.ac.cput.factory.AdminLoginFactory;
 
 import java.util.Arrays;

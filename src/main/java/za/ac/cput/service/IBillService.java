@@ -5,7 +5,7 @@
   */
 package za.ac.cput.service;
 
-import za.ac.cput.entity.Bill;
+import za.ac.cput.domain.Bill;
 
 public interface IBillService extends IService<Bill, String>{
 }
