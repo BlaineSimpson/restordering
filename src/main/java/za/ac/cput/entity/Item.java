@@ -7,14 +7,24 @@ Date: 9 April 2022
 
 package za.ac.cput.entity;
 
-public class Item {
-    private Integer ID;
-    private Integer orderID;
-    private Integer quantity;
-    private double price;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 
-    private Item(){
-    }
+@Entity
+public class Item implements Serializable {
+    @Id
+    @NotNull
+    private String ID;
+    @NotNull
+    private String orderID;
+    @NotNull
+    private String quantity;
+    @NotNull
+    private String price;
+
+
 
 
     private Item(Builder builder){
@@ -24,38 +34,41 @@ public class Item {
         this.price=builder.price;
     }
 
+    protected Item() {
+
+    }
 
 
     //getters and setters
-    public Integer getID() {
+    public String getID() {
         return ID;
     }
 
-    public void setID(Integer ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
-    public Integer getOrderID() {
+    public String getOrderID() {
         return orderID;
     }
 
-    public void setOrderID(Integer orderID) {
+    public void setOrderID( String orderID) {
         this.orderID = orderID;
     }
 
-    public Integer getQuantity() {
+    public String getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(String quantity) {
         this.quantity = quantity;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
     //end of getters and setters
@@ -74,27 +87,27 @@ public class Item {
 
 
     public static class Builder{
-        private Integer ID;
-        private Integer orderID;
-        private Integer quantity;
-        private double price;
+        private String ID;
+        private  String orderID;
+        private  String quantity;
+        private  String price;
 
-        public Builder setID(Integer ID) {
+        public Builder setID(String ID) {
             this.ID = ID;
             return this;
         }
 
-        public Builder setOrderID(Integer orderID) {
+        public Builder setOrderID( String orderID) {
             this.orderID = orderID;
             return this;
         }
 
-        public Builder setQuantity(Integer quantity) {
+        public Builder setQuantity(String quantity) {
             this.quantity = quantity;
             return this;
         }
 
-        public Builder setPrice(double price) {
+        public Builder setPrice( String price) {
             this.price = price;
             return this;
         }

@@ -13,6 +13,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import za.ac.cput.entity.AdminLogin;
 import za.ac.cput.entity.Bill;
 import za.ac.cput.factory.BillFactory;
 
@@ -28,8 +29,8 @@ class BillControllerTest {
     private int port;
 
     @Autowired
-    private AdminLoginController controller;
-    //Used to test our web services
+    private BillController controller;
+
     @Autowired
     private TestRestTemplate restTemplate;
 
@@ -38,13 +39,13 @@ class BillControllerTest {
     @BeforeEach
     void setUp(){
         bill = BillFactory.createBill("6682", "22 June 2021","5887", " R458", " Paid with cash", 658);
-        baseUrl = "http://localhost:" + port + "/bill/bill/";
+        baseUrl = "http://localhost:" + port + "/restaurant/bill/";
     }
     @Test
     @Order(1)
     void save() {
         String url = baseUrl + "save";
-        ResponseEntity<Bill> response = restTemplate.postForEntity(url, this.bill, Bill.class);
+        ResponseEntity<Bill> response = restTemplate.postForEntity(url, this.bill,Bill.class);
         assertAll(
                 //checking to see that the statusCode for response matches OK (that it is successful)
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
@@ -52,6 +53,7 @@ class BillControllerTest {
                 () -> assertNotNull(response.getBody())
         );
     }
+
     @Test
     @Order(2)
     void findById() {

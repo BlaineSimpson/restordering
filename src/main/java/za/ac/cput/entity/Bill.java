@@ -5,15 +5,30 @@ package za.ac.cput.entity;
     Date: 04 April 2022
          */
 
-public class Bill {
+import com.sun.istack.NotNull;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.Objects;
+
+@Entity
+public class Bill  implements Serializable {
+    @Id
+    @NotNull
     private String billId;
+    @NotNull
     private String billDate;
+    @NotNull
     private String cusId;
+    @NotNull
     private String restaurantId;
+    @NotNull
     private String billDescr;
+    @NotNull
     private int billAmount;
 
-    private Bill(){
+    protected Bill(){
 
     }
     private Bill(Builder builder){
@@ -48,6 +63,19 @@ public class Bill {
 
     public int getBillAmount() {
         return billAmount;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Bill bill = (Bill) o;
+        return billAmount == bill.billAmount && billId.equals(bill.billId) && billDate.equals(bill.billDate) && cusId.equals(bill.cusId) && restaurantId.equals(bill.restaurantId) && billDescr.equals(bill.billDescr);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(billId, billDate, cusId, restaurantId, billDescr, billAmount);
     }
 
     @Override

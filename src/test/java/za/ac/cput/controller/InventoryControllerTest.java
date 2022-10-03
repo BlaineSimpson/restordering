@@ -12,6 +12,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import za.ac.cput.entity.AdminLogin;
+import za.ac.cput.entity.Customer;
 import za.ac.cput.entity.Inventory;
 import za.ac.cput.factory.InventoryFactory;
 
@@ -38,37 +40,38 @@ class InventoryControllerTest {
     @BeforeEach
     void setup(){
         inventory= InventoryFactory.createInventory("012B","HotDog","Sausages", "Johnston", 23, 30);
-        this.baseUrl="http://localhost:"+this.port+"/inventory/inventory/";
-        assertNotNull(inventoryController);
+        this.baseUrl="http://localhost:"+this.port+"/restaurant/inventory/";
+
     }
 
     @Test
     @Order(1)
     void save() {
         String url = baseUrl + "save";
-        System.out.println(url);
-        ResponseEntity<Inventory> response = this.restTemplate
-                .postForEntity(url, this.inventory, Inventory.class);
-        System.out.println(response);
+        ResponseEntity<Inventory> response = restTemplate.postForEntity(url, this.inventory, Inventory.class);
         assertAll(
+
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                () -> assertNotNull(response.getBody()));
+
+                () -> assertNotNull(response.getBody())
+        );
 
     }
 
     @Test
     @Order(2)
     void findById() {
-        String url = baseUrl + "find/" + this.inventory.getInv();
-        ResponseEntity<Inventory> response = this.restTemplate.getForEntity(url, Inventory.class);
-        assertAll(
-                () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                () -> assertNotNull(response.getBody())
-        );
-        System.out.println(url);
-        System.out.println(response);
+            String url = baseUrl + "find/" + this.inventory.getInv();
+            ResponseEntity<Inventory> response = this.restTemplate.getForEntity(url, Inventory.class);
+            assertAll(
+                    () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
+                    () -> assertNotNull(response.getBody())
+            );
+            System.out.println(url);
+            System.out.println(response);
+        }
 
-    }
+
 
     @Test
     @Order(4)
@@ -90,12 +93,12 @@ class InventoryControllerTest {
     @Order(3)
     void findAll() {
         String url = baseUrl + "all";
-        System.out.println(url);
-        ResponseEntity<Inventory[]> response = this.restTemplate.getForEntity(url, Inventory[].class);
+        ResponseEntity<Inventory[]> response = restTemplate.getForEntity(url, Inventory[].class);
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                () -> assertEquals(1, response.getBody().length)
+
+                () -> assertTrue(response.getBody().length == 1)
         );
     }
 }

@@ -13,7 +13,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.Order;
+import za.ac.cput.entity.Orderr;
 import za.ac.cput.factory.OrderFactory;
 
 import java.util.Arrays;
@@ -26,24 +26,24 @@ public class OrderControllerTest {
     @LocalServerPort
     private int port;
     @Autowired
-    private ItemOrderController itemOrderController;
+    private OrderController OrderController;
     @Autowired
     private TestRestTemplate restTemplate;
 
-    private Order order;
+    private Orderr order;
     private String baseUrl;
 
 
     @BeforeEach
     void setUp(){
-        order = OrderFactory.createOrder(13, "12 July", true);
+        order = OrderFactory.createOrder("13", "12 July", true);
         baseUrl = "http://localhost:" + port + "/restaurant/order/";
     }
     @Test
-    @org.junit.jupiter.api.Order(1)
+    @Order(1)
     void save() {
         String url = baseUrl + "save";
-        ResponseEntity<Order> response = restTemplate.postForEntity(url, this.order, Order.class);
+        ResponseEntity<Orderr> response = restTemplate.postForEntity(url, this.order, Orderr.class);
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
                 () -> assertNotNull(response.getBody())
@@ -51,10 +51,10 @@ public class OrderControllerTest {
     }
 
     @Test
-    @org.junit.jupiter.api.Order(2)
+    @Order(2)
     void findById() {
-        String url = baseUrl + "find/" + this.order.getCustomerID();
-        ResponseEntity<Order> response = this.restTemplate.getForEntity(url, Order.class);
+        String url = baseUrl + "find/" + this.order.getOrderID();
+        ResponseEntity<Orderr> response = this.restTemplate.getForEntity(url, Orderr.class);
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
                 () -> assertNotNull(response.getBody())
@@ -64,10 +64,10 @@ public class OrderControllerTest {
     }
 
     @Test
-    @org.junit.jupiter.api.Order(3)
+    @Order(3)
     void findAll() {
         String url = baseUrl + "all";
-        ResponseEntity<Order[]> response = restTemplate.getForEntity(url, Order[].class);
+        ResponseEntity<Orderr[]> response = restTemplate.getForEntity(url, Orderr[].class);
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
@@ -76,7 +76,7 @@ public class OrderControllerTest {
     }
 
     @Test
-    @org.junit.jupiter.api.Order(4)
+    @Order(4)
     void delete() {
         String url = baseUrl + "delete-order";
         restTemplate.delete(url);
@@ -86,7 +86,7 @@ public class OrderControllerTest {
     @Test
     @org.junit.jupiter.api.Order(5)
     void deleteById() {
-        String url = baseUrl + "delete/" + order.getCustomerID();
+        String url = baseUrl + "delete/" + order.getOrderID();
         restTemplate.delete(url);
         System.out.println(url);
     }

@@ -1,8 +1,11 @@
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.entity.Item;
 import java.util.Set;
 
-public interface IItemRepository extends IRepository<Item,String> {
-    public Set<Item> getAll();
+@Repository
+public interface IItemRepository extends JpaRepository<Item,String> {
+
 }

@@ -14,7 +14,7 @@ import za.ac.cput.entity.Item;
 class ItemFactoryTest {
     @Test
     public void notNullValues(){
-        Item item = ItemFactory.createItem(1, 3, 56, 40.99);
+        Item item = ItemFactory.createItem("1", "3", "56", "40.99");
 
         assertNotNull(item);
 

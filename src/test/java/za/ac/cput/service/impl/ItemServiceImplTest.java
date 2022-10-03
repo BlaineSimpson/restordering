@@ -23,10 +23,11 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ItemServiceImplTest {
+
     @Autowired
     private ItemServiceImpl service;
-    private final Item item = ItemFactory.createItem(1, 13, 15, 10.99);
-    private final Item item2 = ItemFactory.createItem(1, 14, 15, 10.99);
+    private final Item item = ItemFactory.createItem("1", "13", "15", "10.99");
+    private final Item item2 = ItemFactory.createItem("1", "14", "15", "10.99");
 
     @Test
     @Order(1)
@@ -41,7 +42,7 @@ public class ItemServiceImplTest {
     @Test
     @Order(2)
     void findById() {
-        Optional<Item> read = this.service.findById(this.item.getID());
+        Optional<Item> read = this.service.findById(item.getID());
         assertAll(
                 () -> assertTrue(read.isPresent()),
                 () -> assertEquals(this.item, read.get())

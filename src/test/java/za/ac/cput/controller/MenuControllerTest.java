@@ -35,8 +35,8 @@ private String baseUrl;
 @BeforeEach
 void setup(){
     menu = MenuFactory.createMenu("A","Kiddies");
-    this.baseUrl= "http://localhost:"+ this.port+"/menu/menu/";
-    assertNotNull (menuController);
+    this.baseUrl= "http://localhost:"+ this.port+"/restaurant/menu/";
+
 
 }
 @Test

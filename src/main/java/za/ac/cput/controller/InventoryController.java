@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
+import za.ac.cput.entity.AdminLogin;
 import za.ac.cput.entity.Inventory;
 import za.ac.cput.service.IInventoryService;
 
@@ -18,7 +19,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("inventory/inventory")
+@RequestMapping("restaurant/inventory")
 @Slf4j
 public class InventoryController {
 
@@ -30,11 +31,10 @@ public class InventoryController {
     }
 
     @PostMapping("save")
-    public ResponseEntity<Inventory> save(@Valid @RequestBody Inventory inventory) {
-        log.info("Save request: {}", inventory);
-        Inventory save = inventoryService.save(inventory);
-        return ResponseEntity.ok(save);
-
+    public ResponseEntity<Inventory> save(@Valid @RequestBody Inventory inventory){
+        log.info("Save Request: {}", inventory);
+        Inventory insert = inventoryService.save(inventory);
+        return ResponseEntity.ok(insert);
     }
 
     @GetMapping("find/{id}")

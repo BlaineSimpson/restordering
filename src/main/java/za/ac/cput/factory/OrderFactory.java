@@ -7,13 +7,13 @@ Date: 9 April 2022
 
 package za.ac.cput.factory;
 
-import za.ac.cput.entity.Order;
+import za.ac.cput.entity.Orderr;
 
 public class OrderFactory {
 
-    public static Order createOrder(Integer custNum, String date, boolean ready){
-        Order order = new Order.Builder().setCustomerID(custNum)
-                .setOrderDate(date)
+    public static Orderr createOrder(String orderId, String orderDate, boolean ready){
+        Orderr order = new Orderr.Builder().setOrderId(orderId)
+                .setOrderDate(orderDate)
                 .setReady(ready)
                 .build();
         return order;

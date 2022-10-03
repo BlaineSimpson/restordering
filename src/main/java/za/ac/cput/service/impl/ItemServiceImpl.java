@@ -16,6 +16,7 @@ import za.ac.cput.service.IItemService;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ItemServiceImpl implements IItemService {
 
     private final IItemRepository repository;
