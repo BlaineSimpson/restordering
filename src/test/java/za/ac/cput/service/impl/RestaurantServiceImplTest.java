@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.entity.Restaurant;
+import za.ac.cput.domain.Restaurant;
 import za.ac.cput.factory.RestaurantFactory;
 
 import java.util.List;

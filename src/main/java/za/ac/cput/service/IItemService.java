@@ -6,7 +6,7 @@ Date: 25 September 2022
 
 package za.ac.cput.service;
 
-import za.ac.cput.entity.Item;
+import za.ac.cput.domain.Item;
 
 public interface IItemService extends IService<Item, String>{
 }

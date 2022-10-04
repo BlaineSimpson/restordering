@@ -7,7 +7,7 @@ Author Shuaib Allie
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.entity.Supplier;
+import za.ac.cput.domain.Supplier;
 
 import static org.junit.jupiter.api.Assertions.*;
 

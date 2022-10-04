@@ -6,7 +6,7 @@ Date: 4 August 2022
  */
 package za.ac.cput.service;
 
-import za.ac.cput.entity.Restaurant;
+import za.ac.cput.domain.Restaurant;
 
 
 public interface IRestaurantService extends IService<Restaurant, String> {

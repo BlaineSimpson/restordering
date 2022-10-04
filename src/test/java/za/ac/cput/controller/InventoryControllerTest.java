@@ -12,9 +12,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.AdminLogin;
-import za.ac.cput.entity.Customer;
-import za.ac.cput.entity.Inventory;
+import za.ac.cput.domain.Inventory;
 import za.ac.cput.factory.InventoryFactory;
 
 import java.util.Arrays;
@@ -40,7 +38,7 @@ class InventoryControllerTest {
     @BeforeEach
     void setup(){
         inventory= InventoryFactory.createInventory("012B","HotDog","Sausages", "Johnston", 23, 30);
-        this.baseUrl="http://localhost:"+this.port+"/restaurant/inventory/";
+        baseUrl="http://localhost:"+ port + "/restaurant/inventory/";
 
     }
 

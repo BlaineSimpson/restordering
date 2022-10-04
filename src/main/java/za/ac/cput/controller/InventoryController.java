@@ -11,12 +11,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.entity.AdminLogin;
-import za.ac.cput.entity.Inventory;
+import za.ac.cput.domain.AdminLogin;
+import za.ac.cput.domain.Inventory;
 import za.ac.cput.service.IInventoryService;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("restaurant/inventory")
@@ -38,12 +39,12 @@ public class InventoryController {
     }
 
     @GetMapping("find/{id}")
-    public ResponseEntity<Inventory> findById(@PathVariable String id) {
-        log.info("Find by id request: {}", id);
-        Inventory inventory = this.inventoryService.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return ResponseEntity.ok(inventory);
+    public ResponseEntity<Optional<Inventory>> findById(@PathVariable String id){
+        log.info("Read Request: {}", id);
+        Optional<Inventory> find = inventoryService.findById(id);
+        return ResponseEntity.ok(find);
     }
+
     @DeleteMapping("delete-inventory")
     public ResponseEntity<Void>delete(Inventory inventory) {
         log.info("Delete request{}", inventory);

@@ -4,7 +4,7 @@ package za.ac.cput.factory;
  Author: Sinovuyo Mlanjeni (219220387)
  Date: 04 April 2022
 */
-import za.ac.cput.entity.Customer;
+import za.ac.cput.domain.Customer;
 
 
 public class CustomerFactory {

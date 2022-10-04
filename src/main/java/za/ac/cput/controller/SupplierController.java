@@ -11,14 +11,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.entity.Supplier;
+import za.ac.cput.domain.Supplier;
 import za.ac.cput.service.ISupplierService;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("supplier/supplier")
+@RequestMapping("restaurant/supplier")
 @Slf4j
 public class SupplierController {
 

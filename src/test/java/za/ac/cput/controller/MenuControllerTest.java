@@ -12,7 +12,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.Menu;
+import za.ac.cput.domain.AdminLogin;
+import za.ac.cput.domain.Menu;
 import za.ac.cput.factory.MenuFactory;
 
 import java.util.Arrays;
@@ -55,14 +56,15 @@ void setup(){
     @Test
     @Order(2)
     void findId() {
-    String url =baseUrl+"find/" +this.menu.getMenuT();
-    ResponseEntity<Menu>response = this.restTemplate.getForEntity(url, Menu.class);
-    assertAll(
-            () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-            () -> assertNotNull(response.getBody())
-    );
-        System.out.println(url);
-        System.out.println(response);
+
+            String url = baseUrl + "find/" + this.menu.getMenuId();
+            ResponseEntity<Menu> response = this.restTemplate.getForEntity(url, Menu.class);
+            assertAll(
+                    () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
+                    () -> assertNotNull(response.getBody())
+            );
+            System.out.println(url);
+            System.out.println(response);
 
     }
 

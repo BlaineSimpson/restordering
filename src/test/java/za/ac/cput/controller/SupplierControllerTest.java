@@ -12,7 +12,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.Supplier;
+import za.ac.cput.domain.Restaurant;
+import za.ac.cput.domain.Supplier;
 import za.ac.cput.factory.SupplierFactory;
 
 import java.util.Arrays;
@@ -38,7 +39,7 @@ class SupplierControllerTest {
     @BeforeEach
     void setup(){
         supplier= SupplierFactory.createSupplier("Johns","28 Art Road","johns21@gmail.com", 021456257, 23);
-        this.baseUrl="http://localhost:"+this.port+"/supplier/supplier/";
+        this.baseUrl="http://localhost:"+this.port+"/restaurant/supplier/";
         assertNotNull(supplierController);
     }
 
@@ -53,6 +54,7 @@ class SupplierControllerTest {
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
                 () -> assertNotNull(response.getBody()));
+
 
     }
 
@@ -95,7 +97,7 @@ class SupplierControllerTest {
         System.out.println(Arrays.asList(response.getBody()));
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
-                () -> assertEquals(1, response.getBody().length)
+                () -> assertEquals(2, response.getBody().length)
         );
     }
 }

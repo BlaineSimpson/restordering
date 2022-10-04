@@ -11,12 +11,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.entity.Menu;
+import za.ac.cput.domain.AdminLogin;
+import za.ac.cput.domain.Menu;
 import za.ac.cput.service.IMenuService;
 
 import javax.validation.Valid;
 import java.util.List;
-
+import java.util.Optional;
 
 
 @RestController
@@ -37,11 +38,10 @@ private final IMenuService menuService;
 
     }
     @GetMapping("find/{id}")
-    public ResponseEntity<Menu> findId(@PathVariable String id){
-      log.info("Find by id request: {}", id);
-      Menu menu = this.menuService.findById(id)
-              .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-        return ResponseEntity.ok(menu);
+    public ResponseEntity<Optional<Menu>> findById(@PathVariable String id){
+        log.info("Read Request: {}", id);
+        Optional<Menu> find = menuService.findById(id);
+        return ResponseEntity.ok(find);
     }
     @DeleteMapping("delete-menu")
     public ResponseEntity<Void> delete(@PathVariable String menu){

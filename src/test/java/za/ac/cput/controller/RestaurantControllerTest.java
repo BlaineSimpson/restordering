@@ -13,7 +13,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.entity.Restaurant;
+import za.ac.cput.domain.Restaurant;
 import za.ac.cput.factory.RestaurantFactory;
 
 import java.util.Arrays;

@@ -1,6 +1,6 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.entity.Menu;
+import za.ac.cput.domain.Menu;
 
 
 /* MenuFactory.java

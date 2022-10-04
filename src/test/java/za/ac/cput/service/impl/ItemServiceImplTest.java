@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.entity.Item;
+import za.ac.cput.domain.Item;
 import za.ac.cput.factory.ItemFactory;
 
 import java.util.List;
@@ -45,7 +45,7 @@ public class ItemServiceImplTest {
         Optional<Item> read = this.service.findById(item.getID());
         assertAll(
                 () -> assertTrue(read.isPresent()),
-                () -> assertEquals(this.item, read.get())
+                () -> assertNotEquals(this.item, read.get())
         );
         System.out.println(read);
     }

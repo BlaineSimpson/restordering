@@ -12,7 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-import za.ac.cput.entity.Tablee;
+import za.ac.cput.domain.Tablee;
 import za.ac.cput.service.ITableService;
 
 import javax.validation.Valid;

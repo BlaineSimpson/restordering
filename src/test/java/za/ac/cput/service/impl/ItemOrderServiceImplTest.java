@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import za.ac.cput.entity.ItemOrder;
+import za.ac.cput.domain.ItemOrder;
 import za.ac.cput.factory.ItemOrderFactory;
 
 import java.util.List;
@@ -65,14 +65,14 @@ class ItemOrderServiceImplTest {
     void findAll() {
         List<ItemOrder> listItemOrder = this.service.findAll();
         System.out.println(listItemOrder);
-        assertEquals(2, listItemOrder.size());
+        assertEquals(1, listItemOrder.size());
         System.out.println();
     }
 
     @Test
     @Order(5)
     void deleteById() {
-        service.deleteById("A");
+        service.deleteById("B");
         List<ItemOrder> listItemOrder = this.service.findAll();
         System.out.println(listItemOrder);
     }

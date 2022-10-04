@@ -5,7 +5,7 @@ Date: 7 April 2022
  */
 package za.ac.cput.factory;
 
-import za.ac.cput.entity.Tablee;
+import za.ac.cput.domain.Tablee;
 import za.ac.cput.util.LoginHelper;
 
 public class TableFactory {

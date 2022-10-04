@@ -5,7 +5,7 @@ Date: 7 April 2022
  */
 package za.ac.cput.factory;
 
-import za.ac.cput.entity.Restaurant;
+import za.ac.cput.domain.Restaurant;
 import za.ac.cput.util.LoginHelper;
 
 public class RestaurantFactory {

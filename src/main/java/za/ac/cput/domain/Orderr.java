@@ -5,7 +5,7 @@ Author Craig Jarvis (220103216)
 Date: 9 April 2022
  */
 
-package za.ac.cput.entity;
+package za.ac.cput.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
