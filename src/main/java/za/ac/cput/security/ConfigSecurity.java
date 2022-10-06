@@ -57,7 +57,47 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/restaurant/user/find/").hasRole("ADMIN")
                 .antMatchers(HttpMethod.GET, "/restaurant/user/all").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/restaurant/user/delete/").hasRole("ADMIN")
+                //Customer
+                .antMatchers(HttpMethod.POST, "/restaurant/customer/save").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/restaurant/customer/find/").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/restaurant/customer/all").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/restaurant/customer/delete/").hasRole("ADMIN")
+                //Bill
+                .antMatchers(HttpMethod.POST, "/restaurant/bill/save").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/restaurant/bill/find/").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/restaurant/bill/all").hasRole("USER")
+                .antMatchers(HttpMethod.DELETE,"restaurant/bill/delete/").hasRole("USER")
+                //Order
+                .antMatchers(HttpMethod.POST, "/restaurant/order/save").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/restaurant/order/find/").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/restaurant/order/all").hasRole("USER")
+                .antMatchers(HttpMethod.DELETE,"restaurant/order/delete/").hasRole("USER")
 
+                //Menu
+                .antMatchers(HttpMethod.POST, "/restaurant/menu/save").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/restaurant/menu/find/").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/restaurant/menu/all").hasRole("USER")
+                .antMatchers(HttpMethod.DELETE,"restaurant/menu/delete/").hasRole("USER")
+                //Supplier
+                .antMatchers(HttpMethod.POST, "/restaurant/supplier/save").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/restaurant/supplier/find/").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/restaurant/supplier/all").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/restaurant/supplier/delete/").hasRole("ADMIN")
+                //Item
+                .antMatchers(HttpMethod.POST, "/restaurant/item/save").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/restaurant/item/find/").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/restaurant/item/all").hasRole("USER")
+                .antMatchers(HttpMethod.DELETE,"restaurant/item/delete/").hasRole("USER")
+                //Inventory
+                .antMatchers(HttpMethod.POST, "/restaurant/inventory/save").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/restaurant/inventory/find/").hasRole("ADMIN")
+                .antMatchers(HttpMethod.GET, "/restaurant/inventory/all").hasRole("ADMIN")
+                .antMatchers(HttpMethod.DELETE, "/restaurant/inventory/delete/").hasRole("ADMIN")
+                //OrderItem
+                .antMatchers(HttpMethod.POST, "/restaurant/orderItem/save").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/restaurant/orderItem/find/").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/restaurant/orderItem/all").hasRole("USER")
+                .antMatchers(HttpMethod.DELETE,"restaurant/orderItem/delete/").hasRole("USER")
                 .and()
                 .csrf().disable()
                 .formLogin().disable();
