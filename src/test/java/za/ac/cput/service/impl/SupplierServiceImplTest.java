@@ -25,8 +25,8 @@ class SupplierServiceImplTest {
 
     @Autowired
     private SupplierServiceImpl service;
-    private final Supplier supplier1= SupplierFactory.createSupplier("Cape Shop","2 Hole Street","capeshop@gmail.com",21458221, 35);
-    private final Supplier supplier2 =SupplierFactory.createSupplier("Corner Shop","38 Beek Street", "cornershop@gmail.com", 2487541, 28);
+    private final Supplier supplier1= SupplierFactory.createSupplier("Cape Shop","2 Hole Street","capeshop@gmail.com","21458221", "35B");
+    private final Supplier supplier2 =SupplierFactory.createSupplier("Corner Shop","38 Beek Street", "cornershop@gmail.com", "2487541", "28D");
 
     @Test
     @Order(1)
@@ -61,7 +61,7 @@ class SupplierServiceImplTest {
         service.delete(supplier1);
         List<Supplier> listSupplier=this.service.findAll();
         System.out.println(listSupplier);
-        assertEquals(1,listSupplier.size());
+        assertEquals(2,listSupplier.size());
         System.out.println();
     }
 
@@ -70,7 +70,7 @@ class SupplierServiceImplTest {
     void findAll() {
         List<Supplier> listSupplier= this.service.findAll();
         System.out.println(listSupplier);
-        assertEquals(2,listSupplier.size());
+        assertEquals(1,listSupplier.size());
         System.out.println();
 
     }

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Restaurant;
@@ -38,7 +38,7 @@ class SupplierControllerTest {
 
     @BeforeEach
     void setup(){
-        supplier= SupplierFactory.createSupplier("Johns","28 Art Road","johns21@gmail.com", 021456257, 23);
+        supplier= SupplierFactory.createSupplier("Johns","28 Art Road","johns21@gmail.com", "021456257", "23A");
         this.baseUrl="http://localhost:"+this.port+"/restaurant/supplier/";
         assertNotNull(supplierController);
     }

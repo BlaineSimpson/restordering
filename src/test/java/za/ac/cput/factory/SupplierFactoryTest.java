@@ -15,7 +15,7 @@ class SupplierFactoryTest {
 
     @Test
     void createSupplier() {
-        Supplier supplier= SupplierFactory.createSupplier("Davids","2 Unity Road","davids34@gmail.com",021457457, 22);
+        Supplier supplier= SupplierFactory.createSupplier("Davids","2 Unity Road","davids34@gmail.com","021457457", "22D");
         assertNotNull(supplier);
         System.out.println("Create Supplier ");
         System.out.println(supplier);

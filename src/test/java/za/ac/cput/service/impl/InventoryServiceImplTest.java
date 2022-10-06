@@ -25,8 +25,8 @@ class InventoryServiceImplTest {
 
     @Autowired
     private InventoryServiceImpl service;
-    private final Inventory inventory1= InventoryFactory.createInventory("012","Chicken Gatsby","Gatsby","Johnston", 30, 65);
-    private final Inventory inventory2 =InventoryFactory.createInventory("013","Chicken Sandwich", "Sandwich", "Ibrahims", 25, 40);
+    private final Inventory inventory1= InventoryFactory.createInventory("012","Chicken Gatsby","Gatsby","Johnston", "30", "65");
+    private final Inventory inventory2 =InventoryFactory.createInventory("013","Chicken Sandwich", "Sandwich", "Ibrahims", "25", "40");
 
     @Test
     @Order(1)

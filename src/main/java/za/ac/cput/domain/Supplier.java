@@ -22,9 +22,9 @@ public class Supplier implements Serializable {
     @NotNull
     private String suppEmail;
     @NotNull
-    private int suppPhone;
+    private String suppPhone;
     @NotNull
-    private int suppID;
+    private String suppID;
 
 
 
@@ -53,11 +53,11 @@ public class Supplier implements Serializable {
         return suppEmail;
     }
 
-    public int getSuppPhone(){
+    public String getSuppPhone(){
         return suppPhone;
     }
 
-    private int getSuppID(){
+    private String getSuppID(){
         return suppID;
     }
 
@@ -87,8 +87,8 @@ public class Supplier implements Serializable {
         private String suppPhysAddress;
 
         private String suppEmail;
-        private int suppPhone;
-        private int suppID;
+        private String suppPhone;
+        private String suppID;
 
 
         public Supplier.Builder setSuppName(String suppName){
@@ -106,12 +106,12 @@ public class Supplier implements Serializable {
             return this;
         }
 
-        public Supplier.Builder setSupPhone(int suppPhone){
+        public Supplier.Builder setSupPhone(String suppPhone){
             this.suppPhone = suppPhone;
             return this;
         }
 
-        public Supplier.Builder setSuppID(int suppID){
+        public Supplier.Builder setSuppID(String suppID){
             this.suppID = suppID;
             return this;
         }
