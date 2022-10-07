@@ -15,7 +15,7 @@ class InventoryFactoryTest {
 
     @Test
     void createInventory() {
-        Inventory inventory= InventoryFactory.createInventory("1A","Beef burger","Burgers", "Johnston", 20, 34);
+        Inventory inventory= InventoryFactory.createInventory("1A","Beef burger","Burgers", "Johnston", "20", "34");
         assertNotNull(inventory);
         System.out.println("Create Inventory ");
         System.out.println(inventory);

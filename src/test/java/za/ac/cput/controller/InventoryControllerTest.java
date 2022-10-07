@@ -9,7 +9,7 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Inventory;
@@ -37,7 +37,7 @@ class InventoryControllerTest {
 
     @BeforeEach
     void setup(){
-        inventory= InventoryFactory.createInventory("012B","HotDog","Sausages", "Johnston", 23, 30);
+        inventory= InventoryFactory.createInventory("012B","HotDog","Sausages", "Johnston", "23", "30");
         baseUrl="http://localhost:"+ port + "/restaurant/inventory/";
 
     }
