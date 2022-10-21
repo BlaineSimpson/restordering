@@ -38,7 +38,7 @@ class SupplierControllerTest {
 
     @BeforeEach
     void setup(){
-        supplier= SupplierFactory.createSupplier("Johns","28 Art Road","johns21@gmail.com", "021456257", "23A");
+        supplier= SupplierFactory.createSupplier("02D","28 Art Road","johns21@gmail.com", "021456257", "James");
         this.baseUrl="http://localhost:"+this.port+"/restaurant/supplier/";
         assertNotNull(supplierController);
     }
@@ -61,7 +61,7 @@ class SupplierControllerTest {
     @Test
     @Order(2)
     void findById() {
-        String url = baseUrl + "find/" + this.supplier.getSuppName();
+        String url = baseUrl + "find/" + this.supplier.getSuppID();
         ResponseEntity<Supplier> response = this.restTemplate.getForEntity(url, Supplier.class);
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
@@ -75,7 +75,7 @@ class SupplierControllerTest {
     @Test
     @Order(4)
     void delete() {
-        String url = baseUrl + "delete-inventory";
+        String url = baseUrl + "delete-supplier";
         restTemplate.delete(url);
         System.out.println(url);
     }
@@ -83,7 +83,7 @@ class SupplierControllerTest {
     @Test
     @Order(5)
     void deleteById() {
-        String url = baseUrl + "delete/" + supplier.getSuppName();
+        String url = baseUrl + "delete/" + supplier.getSuppID();
         restTemplate.delete(url);
         System.out.println(url);
     }

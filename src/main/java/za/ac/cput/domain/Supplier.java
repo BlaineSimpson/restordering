@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Supplier implements Serializable {
     @NotNull
     @Id
-    private String suppName;
+    private String suppID;
     @NotNull
     private String suppPhysAddress;
     @NotNull
@@ -24,7 +24,7 @@ public class Supplier implements Serializable {
     @NotNull
     private String suppPhone;
     @NotNull
-    private String suppID;
+    private String suppName;
 
 
 
@@ -41,8 +41,8 @@ public class Supplier implements Serializable {
 
     }
 
-    public String getSuppName(){
-        return suppName;
+    public String getSuppID(){
+        return suppID;
     }
 
     public String getSuppPhysAddress(){
@@ -57,8 +57,8 @@ public class Supplier implements Serializable {
         return suppPhone;
     }
 
-    private String getSuppID(){
-        return suppID;
+    public String getSuppName(){
+        return suppName;
     }
 
 
@@ -66,11 +66,11 @@ public class Supplier implements Serializable {
     @Override
     public String toString(){
         return "Supplier{" +
-                "suppName='" + suppName + '\'' +
+                "suppID='" + suppID + '\'' +
                 ", supPhysAddress='" + suppPhysAddress + '\'' +
                 ", supEmail='" + suppEmail + '\'' +
                 ", supPhone='" + suppPhone + '\'' +
-                ", supID='" + suppID + '\'' +
+                ", supName='" + suppName + '\'' +
                 '}';
     }
 
