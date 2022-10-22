@@ -25,8 +25,8 @@ class SupplierServiceImplTest {
 
     @Autowired
     private SupplierServiceImpl service;
-    private final Supplier supplier1= SupplierFactory.createSupplier("Cape Shop","2 Hole Street","capeshop@gmail.com","21458221", "35B");
-    private final Supplier supplier2 =SupplierFactory.createSupplier("Corner Shop","38 Beek Street", "cornershop@gmail.com", "2487541", "28D");
+    private final Supplier supplier1= SupplierFactory.createSupplier("35B","2 Hole Street","capeshop@gmail.com","21458221", "Transnet");
+    private final Supplier supplier2 =SupplierFactory.createSupplier("28D","38 Beek Street", "cornershop@gmail.com", "2487541", "Logstics");
 
     @Test
     @Order(1)
@@ -45,7 +45,7 @@ class SupplierServiceImplTest {
     @Test
     @Order(2)
     void findById() {
-        Optional<Supplier> read =this.service.findById(supplier2.getSuppName());
+        Optional<Supplier> read =this.service.findById(supplier2.getSuppID());
         System.out.println(read);
         assertAll(
                 () -> assertTrue(read.isPresent()),
