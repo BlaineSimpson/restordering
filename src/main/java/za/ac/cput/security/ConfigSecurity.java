@@ -80,10 +80,10 @@ public class ConfigSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/restaurant/inventory/all").hasRole("ADMIN")
                 .antMatchers(HttpMethod.DELETE, "/restaurant/inventory/delete/").hasRole("ADMIN")
                 //OrderItem
-                .antMatchers(HttpMethod.POST, "/restaurant/orderItem/save").hasRole("USER")
-                .antMatchers(HttpMethod.GET,"/restaurant/orderItem/find/").hasRole("USER")
-                .antMatchers(HttpMethod.GET,"/restaurant/orderItem/all").hasRole("USER")
-                .antMatchers(HttpMethod.DELETE,"restaurant/orderItem/delete/").hasRole("USER")
+                .antMatchers(HttpMethod.POST, "/restaurant/itemOrder/save").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/restaurant/itemOrder/find/").hasRole("USER")
+                .antMatchers(HttpMethod.GET,"/restaurant/itemOrder/all").hasRole("USER")
+                .antMatchers(HttpMethod.DELETE,"restaurant/itemOrder/delete/").hasRole("USER")
                 //Order
                 .antMatchers(HttpMethod.POST, "/restaurant/order/save").hasRole("USER")
                 .antMatchers(HttpMethod.GET,"/restaurant/order/find/").hasRole("USER")
