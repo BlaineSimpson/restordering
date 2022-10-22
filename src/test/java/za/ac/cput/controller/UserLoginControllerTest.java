@@ -73,7 +73,7 @@ class UserLoginControllerTest {
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
                 //length is the number of insertion done
-                () -> assertTrue(response.getBody().length == 1)
+                () -> assertTrue(response.getBody().length == 1) //Error may occur due to number of entries in the database
         );
     }
 
