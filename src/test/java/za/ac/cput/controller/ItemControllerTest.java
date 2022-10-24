@@ -53,7 +53,7 @@ public class ItemControllerTest {
     @Test
     @Order(2)
     void findById() {
-        String url = baseUrl + "find/" + this.item.getID();
+        String url = baseUrl + "find/" + this.item.getId();
         ResponseEntity<Item> response = this.restTemplate.getForEntity(url, Item.class);
         assertAll(
                 () -> assertEquals(HttpStatus.OK, response.getStatusCode()),
@@ -86,7 +86,7 @@ public class ItemControllerTest {
     @Test
     @Order(5)
     void deleteById() {
-        String url = baseUrl + "delete/" + item.getID();
+        String url = baseUrl + "delete/" + item.getId();
         restTemplate.delete(url);
         System.out.println(url);
     }

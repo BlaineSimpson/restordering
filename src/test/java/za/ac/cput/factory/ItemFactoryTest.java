@@ -20,7 +20,7 @@ class ItemFactoryTest {
 
         System.out.println(item);
 
-        System.out.println(item.getID());
+        System.out.println(item.getId());
         System.out.println(item.getOrderID());
         System.out.println(item.getQuantity());
     }
