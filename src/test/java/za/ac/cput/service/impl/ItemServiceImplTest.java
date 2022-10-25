@@ -42,7 +42,7 @@ public class ItemServiceImplTest {
     @Test
     @Order(2)
     void findById() {
-        Optional<Item> read = this.service.findById(item.getID());
+        Optional<Item> read = this.service.findById(item.getId());
         assertAll(
                 () -> assertTrue(read.isPresent()),
                 () -> assertNotEquals(this.item, read.get())
