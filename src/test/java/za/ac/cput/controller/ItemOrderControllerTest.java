@@ -40,7 +40,7 @@ class ItemOrderControllerTest {
 
     @BeforeEach
     void setUp() {
-        itemOrder = ItemOrderFactory.createItemOrder("1", "username", "password");
+        itemOrder = ItemOrderFactory.createItemOrder("1", "Pizza");
         baseUrl = "http://localhost:" + port + "/restaurant/admin/";
     }
 

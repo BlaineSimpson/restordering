@@ -23,8 +23,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class ItemOrderServiceImplTest {
     @Autowired
     private ItemOrderServiceImpl service;
-    private final ItemOrder itemOrder1 = ItemOrderFactory.createItemOrder("A", "Chips", "2");
-    private final ItemOrder itemOrder2 = ItemOrderFactory.createItemOrder("B", "Pizza", "3");
+    private final ItemOrder itemOrder1 = ItemOrderFactory.createItemOrder("A", "Chips");
+    private final ItemOrder itemOrder2 = ItemOrderFactory.createItemOrder("B", "Pizza");
 
     @Test
     @Order(1)

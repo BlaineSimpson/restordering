@@ -11,13 +11,12 @@ import za.ac.cput.util.LoginHelper;
  */
 public class ItemOrderFactory {
 
-    public static ItemOrder createItemOrder(String ItemId, String ItemName, String NumberOfPlates){
+    public static ItemOrder createItemOrder(String ItemId, String ItemName){
         LoginHelper.checkStringParam("Item Id",ItemId);
         LoginHelper.checkStringParam("Item Name",ItemName);
-        LoginHelper.checkStringParam("Number Of Plates",NumberOfPlates);
+
         return new ItemOrder.Builder().setItemId(ItemId)
               .setItemName(ItemName)
-              .setNumberOfPlates(NumberOfPlates)
               .build();
 
 
