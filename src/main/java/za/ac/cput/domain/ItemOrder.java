@@ -19,21 +19,19 @@ public class ItemOrder implements Serializable {
     private String itemId;
  @NotNull
     private String itemName;
- @NotNull
-    private String numberOfPlates;
 
 
    private ItemOrder(Builder builder){
         this.itemId = builder.itemId;
         this.itemName = builder.itemName;
-        this.numberOfPlates = builder.numberOfPlates;
+
 
     }
 
-    public ItemOrder(String itemId, String itemName, String NumberOfPlates) {
+    public ItemOrder(String itemId, String itemName) {
         this.itemId = itemId;
         this.itemName = itemName;
-        this.numberOfPlates = NumberOfPlates;
+
     }
 
     public ItemOrder() {
@@ -52,45 +50,34 @@ public class ItemOrder implements Serializable {
         return itemName;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
 
-    public String getPrice() {
-        return numberOfPlates;
-    }
-
-    public void setNumberOfPlates(String NumberOfPlates) {
-        this.numberOfPlates = NumberOfPlates;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ItemOrder itemOrder = (ItemOrder) o;
-        return itemId.equals(itemOrder.itemId) && itemName.equals(itemOrder.itemName) && numberOfPlates.equals(itemOrder.numberOfPlates);
+        return Objects.equals(itemId, itemOrder.itemId) && Objects.equals(itemName, itemOrder.itemName);
     }
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(itemId, itemName, numberOfPlates);
+        return Objects.hash(itemId, itemName);
     }
 
     @Override
     public String toString() {
-        return "Item{" +
-                "ItemId=" + itemId +
-                ", ItemName='" + itemName + '\'' +
-                ", NumberOfPlates=" + numberOfPlates +
+        return "ItemOrder{" +
+                "itemId='" + itemId + '\'' +
+                ", itemName='" + itemName + '\'' +
                 '}';
     }
 
     public static class Builder{
-
         private String itemId;
         private String itemName;
-        private String numberOfPlates;
+
 
 
         public Builder setItemId(String itemId) {
@@ -103,15 +90,10 @@ public class ItemOrder implements Serializable {
             return this;
         }
 
-        public Builder setNumberOfPlates(String numberOfPlates) {
-            this.numberOfPlates = numberOfPlates;
-            return this;
-
-        }
         public Builder copy(ItemOrder item){
           this.itemId = item.itemId;
           this.itemName =item.itemName;
-          this.numberOfPlates = item.numberOfPlates;
+
           return this;
 
 
