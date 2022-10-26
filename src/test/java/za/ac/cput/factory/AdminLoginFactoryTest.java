@@ -26,18 +26,19 @@ class AdminLoginFactoryTest {
     }
     @Test
     public void nullId(){
-        AdminLogin admin = AdminLoginFactory.createAdmin("", "Admin", "root1");
-        assertNull(admin, "ID cannot be empty");
+        assertThrows(IllegalArgumentException.class, () -> AdminLoginFactory.createAdmin(null, "Admin", "root1"));
     }
     @Test
     public void nullUsername(){
-        AdminLogin admin = AdminLoginFactory.createAdmin("1", "", "root1");
-        assertNull(admin, "Username cannot be empty");
+        assertThrows(IllegalArgumentException.class, () -> AdminLoginFactory.createAdmin("1", null, "root1"));
     }
     @Test
     public void nullPassword(){
-        AdminLogin admin = AdminLoginFactory.createAdmin("1", "Admin", "");
-        assertNull(admin, "password cannot be empty");
+        assertThrows(IllegalArgumentException.class, () -> AdminLoginFactory.createAdmin("1", "Admin", null));
+    }
+    @Test
+    public void nullAll(){
+        assertThrows(IllegalArgumentException.class, () -> AdminLoginFactory.createAdmin(null, null, null));
     }
 
 }

@@ -30,20 +30,21 @@ class UserLoginFactoryTest {
 
     @Test
     public void nullId(){
-        UserLogin user = UserLoginFactory.createUser("", "User", "root1");
-        assertNull(user, "Id cannot be empty");
+        assertThrows(IllegalArgumentException.class, () -> UserLoginFactory.createUser(null, "User", "root1"));
     }
 
     @Test
     public void nullUsername(){
-        UserLogin user = UserLoginFactory.createUser("1", "", "root1");
-        assertNull(user, "Username cannot be empty");
+        assertThrows(IllegalArgumentException.class, () -> UserLoginFactory.createUser("1", null, "root1"));
     }
 
     @Test
     public void nullPassword(){
-        UserLogin user = UserLoginFactory.createUser("1", "User", "");
-        assertNull(user, "Password cannot be empty");
+        assertThrows(IllegalArgumentException.class, () -> UserLoginFactory.createUser("1", "User", null));
+    }
+    @Test
+    public void nullAll(){
+        assertThrows(IllegalArgumentException.class, () -> UserLoginFactory.createUser(null, null, null));
     }
 
 
